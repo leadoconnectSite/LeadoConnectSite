@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(200 15% 15%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(200 15% 15%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(200 15% 15%);
+  --primary: hsl(195 85% 35%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195 35% 20%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(200 20% 96%);
+  --muted-foreground: hsl(200 10% 40%);
+  --accent: hsl(174 62% 55%);
+  --accent-foreground: hsl(195 85% 10%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(200 20% 88%);
+  --input: hsl(200 20% 88%);
+  --ring: hsl(174 62% 55%);
+  --chart-1: hsl(174 62% 55%);
+  --chart-2: hsl(195 85% 35%);
+  --chart-3: hsl(195 35% 20%);
+  --chart-4: hsl(200 15% 15%);
+  --chart-5: hsl(200 10% 40%);
+  --sidebar-background: hsl(0 0% 100%);
+  --sidebar-foreground: hsl(200 15% 15%);
+  --sidebar-primary: hsl(195 85% 35%);
+  --sidebar-primary-foreground: hsl(0 0% 100%);
+  --sidebar-accent: hsl(174 62% 55%);
+  --sidebar-accent-foreground: hsl(195 85% 10%);
+  --sidebar-border: hsl(200 20% 88%);
+  --sidebar-ring: hsl(174 62% 55%);
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.5rem;
+  
+  /* Custom LeadConnect Colors */
+  --leadconnect-dark: hsl(200 65% 12%);
+  --leadconnect-teal: hsl(200 55% 25%);
+  --leadconnect-accent: hsl(174 62% 55%);
+  --leadconnect-accent-hover: hsl(174 62% 45%);
+}
+
+.dark {
+  --background: hsl(200 65% 12%);
+  --foreground: hsl(0 0% 98%);
+  --card: hsl(200 55% 15%);
+  --card-foreground: hsl(0 0% 98%);
+  --popover: hsl(200 65% 12%);
+  --popover-foreground: hsl(0 0% 98%);
+  --primary: hsl(195 85% 35%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(195 35% 20%);
+  --secondary-foreground: hsl(0 0% 100%);
+  --muted: hsl(200 55% 18%);
+  --muted-foreground: hsl(200 20% 65%);
+  --accent: hsl(174 62% 55%);
+  --accent-foreground: hsl(195 85% 10%);
+  --destructive: hsl(0 84% 60%);
+  --destructive-foreground: hsl(0 0% 98%);
+  --border: hsl(200 55% 25%);
+  --input: hsl(200 55% 25%);
+  --ring: hsl(174 62% 55%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .dot-pattern {
+    background-image: radial-gradient(circle, rgba(92, 212, 200, 0.15) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+  
+  .leadconnect-dark {
+    background-color: var(--leadconnect-dark);
+  }
+  
+  .leadconnect-teal {
+    background-color: var(--leadconnect-teal);
+  }
+  
+  .leadconnect-accent {
+    background-color: var(--leadconnect-accent);
+  }
+  
+  .leadconnect-accent-hover:hover {
+    background-color: var(--leadconnect-accent-hover);
+  }
+}
