@@ -1,23 +1,28 @@
+import company1 from "@/assets/company1.png";
+import company2 from "@/assets/company2.png";
+import company3 from "@/assets/company3.png";
+import company4 from "@/assets/company4.png";
+
 export default function TrustedBy() {
   const companyLogos = [
     {
       name: "Edmingle",
-      logo: "/src/assets/company1.png",
+      logo: company1,
       alt: "Edmingle Logo"
     },
     {
       name: "Synergy Group", 
-      logo: "/src/assets/company2.png",
+      logo: company2,
       alt: "Synergy Group Logo"
     },
     {
       name: "HKR Trainings",
-      logo: "/src/assets/company3.png", 
+      logo: company3, 
       alt: "HKR Trainings Logo"
     },
     {
       name: "Drishti",
-      logo: "/src/assets/company4.png",
+      logo: company4,
       alt: "Drishti Logo"
     }
   ];

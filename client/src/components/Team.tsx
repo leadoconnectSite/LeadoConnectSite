@@ -1,9 +1,13 @@
+import Team1 from "@/assets/Team1.jpg";
+import Team2 from "@/assets/Team2.jpg";
+import Team3 from "@/assets/Team3.jpg";
+
 export default function Team() {
   const teamMembers = [
     {
       name: "Darryl Alexander",
       role: "Founder & CEO",
-      image: "/src/assets/Team1.jpg",
+      image: Team1,
       bio: "Leading LeadConnect with 10+ years of sales experience",
       linkedin: "#",
       twitter: "#"
@@ -11,7 +15,7 @@ export default function Team() {
     {
       name: "Jitendra Likhar",
       role: "Co-Founder & CMO", 
-      image: "/src/assets/Team2.jpg",
+      image: Team2,
       bio: "Driving marketing strategy and brand growth",
       linkedin: "#",
       twitter: "#"
@@ -19,7 +23,7 @@ export default function Team() {
     {
       name: "Sasha Das",
       role: "Business Head",
-      image: "/src/assets/Team3.jpg",
+      image: Team3,
       bio: "Overseeing operations and business development",
       linkedin: "#",
       twitter: "#"
