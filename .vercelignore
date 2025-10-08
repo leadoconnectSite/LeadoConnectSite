@@ -1,0 +1,10 @@
+server/
+.local/
+node_modules/
+*.log
+.env*
+.replit
+replit.md
+drizzle.config.ts
+shared/
+attached_assets/

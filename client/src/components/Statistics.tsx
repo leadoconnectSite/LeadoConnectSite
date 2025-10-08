@@ -3,28 +3,41 @@ export default function Statistics() {
     {
       value: "67%",
       label: "REDUCTION IN WEIGHTED COST",
-      description: "for building in-house"
+      description: "vs. building in-house"
     },
     {
-      value: "21x",
+      value: "21X",
       label: "MORE LIKELY TO SEE A CLEAR ROI", 
       description: "within the first 90 days of service"
     },
     {
       value: "73%",
       label: "INCREASE IN CONVERSATIONS",
-      description: "using channel-optimized data"
+      description: "using channel-optimized lead data"
     },
     {
       value: "87%",
       label: "OF COMPANIES USE AGENCIES",
-      description: "Higher on in-house vs. outsourced guide"
+      description: "get our in-house vs. outsourced guide"
     }
   ];
 
   return (
     <section className="leadconnect-dark py-16 md:py-20 border-t border-leadconnect-teal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16 text-center animate-fade-in">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6" data-testid="text-statistics-title">
+            A done-for-you sales team.
+          </h2>
+          <p className="text-gray-300 text-base md:text-lg max-w-4xl mx-auto leading-relaxed" data-testid="text-statistics-description">
+            Hiring an internal sales development team is expensive and risky. We minimize your risk and maximize your 
+            revenue by providing an expert founder-led sales team focused on outbound strategy, data, content, 
+            technology, and prospecting.
+          </p>
+        </div>
+
+        {/* Statistics Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 max-w-6xl mx-auto animate-slide-up">
           {stats.map((stat, index) => (
             <div key={index} className="text-center lg:text-left" data-testid={`stat-${index}`}>
