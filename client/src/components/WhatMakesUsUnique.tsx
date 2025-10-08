@@ -1,4 +1,5 @@
 import { Users, Monitor, FileCheck } from "lucide-react";
+import serviceImage from "@/assets/service.jpg";
 
 export default function WhatMakesUsUnique() {
   const pillars = [
@@ -20,14 +21,14 @@ export default function WhatMakesUsUnique() {
   ];
 
   return (
-    <section id="about" className="bg-muted py-16 md:py-24">
+    <section id="about" className="bg-gradient-to-br from-slate-50 via-blue-50 to-gray-100 py-16 md:py-24">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header with Image */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16 animate-fade-in">
           {/* Image */}
           <div className="order-2 lg:order-1">
             <img
-              src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=900&q=80"
+              src={serviceImage}
               alt="Professional businessman presenting"
               className="rounded-2xl shadow-2xl w-full h-auto object-cover"
               data-testid="img-unique-presentation"

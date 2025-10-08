@@ -1,9 +1,25 @@
 export default function TrustedBy() {
-  const companies = [
-    "HKR Trainings",
-    "Synergy Doon", 
-    "Edmingle",
-    "Upthrust"
+  const companyLogos = [
+    {
+      name: "Edmingle",
+      logo: "/src/assets/company1.png",
+      alt: "Edmingle Logo"
+    },
+    {
+      name: "Synergy Group", 
+      logo: "/src/assets/company2.png",
+      alt: "Synergy Group Logo"
+    },
+    {
+      name: "HKR Trainings",
+      logo: "/src/assets/company3.png", 
+      alt: "HKR Trainings Logo"
+    },
+    {
+      name: "Drishti",
+      logo: "/src/assets/company4.png",
+      alt: "Drishti Logo"
+    }
   ];
 
   return (
@@ -20,17 +36,34 @@ export default function TrustedBy() {
           </h2>
         </div>
 
-        {/* Company Logos Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 max-w-5xl mx-auto mb-12 animate-slide-up">
-          {companies.map((company, index) => (
-            <div
-              key={index}
-              className="flex items-center justify-center bg-white/5 rounded-xl p-8 hover:bg-white/10 transition-colors h-32"
-              data-testid={`trusted-company-${company.toLowerCase().replace(/\s+/g, '-')}`}
-            >
-              <span className="text-white font-bold text-lg">{company}</span>
+        {/* Company Logos Horizontal Scroll */}
+        <div className="relative py-16 mb-16 animate-slide-up">
+          <div className="overflow-hidden mx-auto" style={{width: 'calc(4 * 280px + 3 * 4rem)'}}>
+            <div className="flex animate-scroll gap-16 whitespace-nowrap">
+              {/* First set of logos */}
+              {companyLogos.map((company, index) => (
+                <div key={`first-${index}`} className="flex-shrink-0" style={{width: '280px'}}>
+                  <img 
+                    src={company.logo} 
+                    alt={company.alt}
+                    className="max-h-64 w-full object-contain opacity-80 hover:opacity-100 transition-opacity rounded-xl"
+                    data-testid={`trusted-company-${company.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  />
+                </div>
+              ))}
+              {/* Second set of logos for seamless loop */}
+              {companyLogos.map((company, index) => (
+                <div key={`second-${index}`} className="flex-shrink-0" style={{width: '280px'}}>
+                  <img 
+                    src={company.logo} 
+                    alt={company.alt}
+                    className="max-h-64 w-full object-contain opacity-80 hover:opacity-100 transition-opacity rounded-xl"
+                    data-testid={`trusted-company-duplicate-${company.name.toLowerCase().replace(/\s+/g, '-')}`}
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

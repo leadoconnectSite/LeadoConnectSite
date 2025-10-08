@@ -7,7 +7,7 @@ export default function FinalCTA() {
   };
 
   return (
-    <section id="contact" className="leadconnect-dark py-16 md:py-24 border-t border-leadconnect-teal">
+    <section id="contact" className="leadconnect-dark py-16 md:py-20 border-t border-leadconnect-teal">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto animate-fade-in">
           <div className="text-center mb-12">
@@ -18,20 +18,20 @@ export default function FinalCTA() {
             </h2>
           </div>
 
-          {/* CTA Card with Image */}
-          <div className="grid lg:grid-cols-2 gap-8 items-center bg-gradient-to-r from-accent to-leadconnect-accent rounded-2xl overflow-hidden shadow-2xl">
+          {/* CTA Card with Image - Horizontal Layout */}
+          <div className="flex flex-col lg:flex-row items-center bg-gradient-to-r from-accent to-leadconnect-accent rounded-2xl overflow-hidden shadow-2xl max-h-[400px]">
             {/* Image */}
-            <div className="order-2 lg:order-1">
+            <div className="lg:w-2/5 h-[250px] lg:h-[400px] w-full">
               <img
-                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=900&q=80"
+                src="https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600&q=80"
                 alt="Professional businesswoman at desk"
-                className="w-full h-full object-cover min-h-[400px]"
+                className="w-full h-full object-cover"
                 data-testid="img-final-cta"
               />
             </div>
 
             {/* Content */}
-            <div className="order-1 lg:order-2 p-8 md:p-12 lg:p-16">
+            <div className="lg:w-3/5 p-8 md:p-10 lg:p-16 flex flex-col justify-center">
               <span className="text-leadconnect-dark text-xs md:text-sm font-semibold tracking-wider uppercase block mb-6" data-testid="text-final-cta-label">
                 ROOTED IN TRUST
               </span>
@@ -43,7 +43,7 @@ export default function FinalCTA() {
               <Button
                 onClick={handleBookDemo}
                 size="lg"
-                className="bg-leadconnect-dark text-white px-8 py-4 font-bold hover:bg-leadconnect-dark/90 transition-all transform hover:scale-105 shadow-lg"
+                className="bg-leadconnect-dark text-white px-8 py-4 font-bold hover:bg-leadconnect-dark/90 transition-all transform hover:scale-105 shadow-lg w-fit"
                 data-testid="button-final-cta-book-demo"
               >
                 BOOK A DEMO

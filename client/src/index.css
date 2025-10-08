@@ -107,4 +107,17 @@
   .leadconnect-accent-hover:hover {
     background-color: var(--leadconnect-accent-hover);
   }
+
+  .animate-scroll {
+    animation: scroll 20s linear infinite;
+  }
+
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-4 * (280px + 4rem)));
+    }
+  }
 }

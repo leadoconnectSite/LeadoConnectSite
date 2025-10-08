@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import CLIENT1 from "@/assets/CLIENT1.jpg";
+import CLIENT2 from "@/assets/CLIENT2.jpg";
 
 export default function Testimonials() {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -12,7 +14,7 @@ export default function Testimonials() {
       author: "Prashant Agrawal",
       role: "Co-Founder & CMO",
       company: "Edvninja",
-      image: "/src/assets/CLIENT1.jpg", // Reference from public folder
+      image: CLIENT1, // Using imported asset
       rating: 5,
       initials: "PA"
     },
@@ -21,7 +23,7 @@ export default function Testimonials() {
       author: "Sarah Johnson", 
       role: "VP of Sales",
       company: "TechFlow Solutions",
-      image: "/src/assets/CLIENT2.jpg", // Reference from public folder
+      image: CLIENT2, // Using imported asset
       rating: 5,
       initials: "SJ"
     }
@@ -36,12 +38,10 @@ export default function Testimonials() {
   };
 
   const handleImageError = (index) => {
-    console.log(`Image failed to load: ${testimonials[index].image}`);
     setImageErrors(prev => ({ ...prev, [index]: true }));
   };
 
   const handleImageLoad = (index) => {
-    console.log(`Image loaded successfully: ${testimonials[index].image}`);
     setImageErrors(prev => ({ ...prev, [index]: false }));
   };
 
@@ -83,59 +83,41 @@ export default function Testimonials() {
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
             <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
-              {/* Client Image Section with Debug Info */}
+              {/* Client Image Section */}
               <div className="order-2 lg:order-1">
-                <div className="relative max-w-md mx-auto lg:mx-0">
-                  {/* Show current image path for debugging */}
-                  <div className="mb-4 text-white text-sm opacity-70">
-                    Debug: {testimonials[currentTestimonial].image}
-                  </div>
-                  
+                <div className="relative max-w-md mx-auto lg:mx-0 h-[400px] lg:h-[500px]">
                   {/* Gradient border around image */}
-                  <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent to-blue-500 p-1">
-                    <div className="relative w-full h-[400px] lg:h-[500px] rounded-2xl overflow-hidden bg-leadconnect-dark">
-                      {!imageErrors[currentTestimonial] ? (
-                        <>
-                          <img
-                            src={testimonials[currentTestimonial].image}
-                            alt={`${testimonials[currentTestimonial].author} - ${testimonials[currentTestimonial].role}`}
-                            className="w-full h-full object-cover object-center"
-                            data-testid="img-testimonial-author"
-                            onError={() => handleImageError(currentTestimonial)}
-                            onLoad={() => handleImageLoad(currentTestimonial)}
-                            style={{ display: 'block' }}
-                          />
-                          {/* Subtle overlay */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-leadconnect-dark/20 to-transparent"></div>
-                        </>
-                      ) : (
-                        /* Fallback when image fails */
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800">
-                          <div className="text-center">
-                            <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center">
-                              <span className="text-4xl font-bold text-white">
-                                {testimonials[currentTestimonial].initials}
-                              </span>
-                            </div>
-                            <p className="text-white font-semibold text-lg">
-                              {testimonials[currentTestimonial].author}
-                            </p>
-                            <p className="text-gray-300 text-sm">
-                              {testimonials[currentTestimonial].role}
-                            </p>
-                            <p className="text-red-400 text-xs mt-2">
-                              Image not found
-                            </p>
+                  <div className="w-full h-full rounded-2xl bg-gradient-to-br from-accent to-blue-500 p-1">
+                    <div className="relative w-full h-full rounded-2xl overflow-hidden bg-leadconnect-dark">
+                      <img
+                        src={testimonials[currentTestimonial].image}
+                        alt={`${testimonials[currentTestimonial].author} - ${testimonials[currentTestimonial].role}`}
+                        className="w-full h-full object-cover object-center rounded-xl"
+                        data-testid="img-testimonial-author"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'flex';
+                        }}
+                      />
+                      {/* Fallback when image fails */}
+                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl" style={{ display: 'none' }}>
+                        <div className="text-center">
+                          <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center">
+                            <span className="text-4xl font-bold text-white">
+                              {testimonials[currentTestimonial].initials}
+                            </span>
                           </div>
+                          <p className="text-white font-semibold text-lg">
+                            {testimonials[currentTestimonial].author}
+                          </p>
+                          <p className="text-gray-300 text-sm">
+                            {testimonials[currentTestimonial].role}
+                          </p>
+                          <p className="text-red-400 text-xs mt-2">
+                            Image failed to load
+                          </p>
                         </div>
-                      )}
-                    </div>
-                  </div>
-                  
-                  {/* Company badge */}
-                  <div className="absolute -bottom-6 -right-6 w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center">
-                    <div className="text-xs font-bold text-gray-800 text-center leading-tight">
-                      {testimonials[currentTestimonial].company.split(' ').map(word => word.charAt(0)).join('')}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -145,24 +127,16 @@ export default function Testimonials() {
               <div className="order-1 lg:order-2">
                 <div className="relative">
                   {/* Large Quote Icon */}
-                  <div className="absolute -top-4 -left-4 text-accent/20">
-                    <Quote className="w-16 h-16" />
+                  <div className="absolute -top-6 -left-6 text-accent/30 transform rotate-12">
+                    <Quote className="w-20 h-20 fill-current" />
                   </div>
                   
-                  {/* Star Rating */}
-                  <div className="flex items-center gap-1 mb-6">
-                    {[...Array(testimonials[currentTestimonial].rating)].map((_, index) => (
-                      <Star key={index} className="w-5 h-5 text-yellow-400 fill-current" />
-                    ))}
-                    <span className="ml-2 text-gray-300 text-sm">
-                      {testimonials[currentTestimonial].rating}.0 out of 5
-                    </span>
-                  </div>
+
                   
                   {/* Testimonial Quote */}
                   <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 font-light relative z-10" data-testid="text-testimonial-quote">
-                    "{testimonials[currentTestimonial].quote}"
-                  </blockquote>
+                  {testimonials[currentTestimonial].quote}
+                </blockquote>
 
                   {/* Author Information */}
                   <div className="border-t border-white/10 pt-6">
