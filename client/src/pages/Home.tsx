@@ -3,9 +3,9 @@ import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
 import PurposeDriven from "@/components/PurposeDriven";
 import Services from "@/components/Services";
+import SalesTeam from "@/components/SalesTeam";
 import Statistics from "@/components/Statistics";
 import Results from "@/components/Results";
-import TrustStatement from "@/components/TrustStatement";
 import WhatMakesUsUnique from "@/components/WhatMakesUsUnique";
 import Team from "@/components/Team";
 import Testimonials from "@/components/Testimonials";
@@ -21,9 +21,9 @@ export default function Home() {
       <ClientLogos />
       <PurposeDriven />
       <Services />
+      <SalesTeam />
       <Statistics />
       <Results />
-      <TrustStatement />
       <WhatMakesUsUnique />
       <Team />
       <Testimonials />
