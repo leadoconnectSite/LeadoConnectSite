@@ -59,13 +59,15 @@ export default function Header() {
                   onClick={() => {}}
                   className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
                 >
+                  B2B Lead Generation
+                </button>
               </div>
             </div>
             <Dialog>
               <DialogTrigger asChild>
                 <Button
                   className="leadconnect-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm w-full"
-                  data-testid="button-mobile-book-demo"
+                  data-testid="button-desktop-book-demo"
                 >
                   Book a Demo
                 </Button>
@@ -90,21 +92,32 @@ export default function Header() {
                           </button>
                         ))}
                       </div>
+                    </label>
+                  </div>
+                  <div className="flex justify-end">
+                    <Button className="leadconnect-accent text-leadconnect-dark px-5 py-2 font-semibold hover:bg-leadconnect-accent-hover w-full">Confirm Booking</Button>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </nav>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="sm"
-            className="md:hidden text-white p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            data-testid="button-mobile-menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </Button>
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="text-white p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              data-testid="button-mobile-menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
+            </Button>
+          </div>
         </div>
       </div>
 

@@ -164,7 +164,7 @@ export default function CombinedIntro() {
               </div>
             </div>
           </div>
-{{ ... }}
+        </div>
       </section>
     </>
   );
