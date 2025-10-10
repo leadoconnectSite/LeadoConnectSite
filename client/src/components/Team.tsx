@@ -31,7 +31,7 @@ export default function Team() {
   ];
 
   return (
-    <section id="team" className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 py-20 md:py-32 overflow-hidden">
+    <section id="team" className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 pt-3 md:pt-6 pb-8 md:pb-10 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
       <div className="absolute top-0 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -39,8 +39,8 @@ export default function Team() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Section Header */}
-        <div className="text-center mb-16 md:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-6">
+        <div className="text-center mb-7 md:mb-10 animate-fade-in">
+          <div className="inline-flex items-center gap-2 mb-7">
             <div className="w-8 h-px bg-accent"></div>
             <span className="text-accent text-sm font-semibold tracking-wider uppercase" data-testid="text-team-label">
               An Experienced Team
@@ -66,14 +66,14 @@ export default function Team() {
           {teamMembers.map((member, index) => (
             <div
               key={index}
-              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 hover:border-accent/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20"
+              className="group relative bg-white/5 backdrop-blur-sm rounded-2xl p-7 border border-white/10 hover:border-accent/50 transition-all duration-500 hover:transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-accent/20"
               data-testid={`team-member-${index}`}
             >
               {/* Card background glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Image Container - NO STATUS DOTS */}
-              <div className="relative mb-6 mx-auto w-32 h-32 md:w-36 md:h-36">
+              <div className="relative mb-5 mx-auto w-32 h-32 md:w-36 md:h-36">
                 {/* Static gradient border */}
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-accent to-blue-500 p-0.5">
                   {/* Image container */}
@@ -106,7 +106,7 @@ export default function Team() {
                   {member.role}
                 </p>
                 
-                <p className="text-gray-300 text-sm leading-relaxed mb-6 group-hover:text-gray-200 transition-colors duration-300">
+                <p className="text-gray-300 text-sm leading-relaxed mb-5 group-hover:text-gray-200 transition-colors duration-300">
                   {member.bio}
                 </p>
 

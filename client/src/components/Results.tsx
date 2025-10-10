@@ -20,7 +20,7 @@ export default function Results() {
   const partners = ["LinkedIn", "Salesforce", "HubSpot"];
 
   return (
-    <section className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 py-20 md:py-32 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 py-3 md:py-6 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
       <div className="absolute top-0 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -28,8 +28,8 @@ export default function Results() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Centered Section Label */}
-        <div className="text-center mb-16 md:mb-20 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-12">
+        <div className="text-center mb-7 md:mb-10 animate-fade-in">
+          <div className="inline-flex items-center gap-2 mb-7">
             <div className="w-8 h-px bg-accent"></div>
             <span className="text-accent text-sm font-semibold tracking-wider uppercase" data-testid="text-results-label">
               RESULTS ORIENTED
@@ -84,7 +84,7 @@ export default function Results() {
             </div>
 
             {/* Logo Carousel */}
-            <div className="animate-fade-in">
+            <div className="animate-fade-in mb-6 md:mb-8">
               <p className="text-gray-400 text-sm font-semibold tracking-wider uppercase mb-6">
                 Trusted by Industry Leaders
               </p>
@@ -364,7 +364,7 @@ export default function Results() {
       </div>
 
       {/* ROOTED IN TRUST Section */}
-      <div className="py-16 md:py-20">
+      <div className="mt-6 md:mt-8 pt-8 md:pt-10 pb-3 md:pb-6">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <div className="bg-accent rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
@@ -386,7 +386,7 @@ export default function Results() {
                 </h2>
 
                 <div className="max-w-2xl">
-                  <p className="text-gray-900/80 text-base md:text-lg leading-relaxed mb-8" data-testid="text-trust-description">
+                  <p className="text-gray-900/80 text-base md:text-lg leading-relaxed mb-8 text-justify" data-testid="text-trust-description">
                     Channel-optimized prospecting will become even more pivotal to growing an organization's revenue. Through targeted data research and competitive persona modeling you can equip frontline sales & development Reps with a modern sales strategy built around managing the accessibility B2B developments in sales technologies, and push for automation. This human interaction in sales is the future (and we're already here).
                   </p>
 

@@ -37,16 +37,16 @@ export default function Testimonials() {
     setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
-  const handleImageError = (index) => {
+  const handleImageError = (index: number) => {
     setImageErrors(prev => ({ ...prev, [index]: true }));
   };
 
-  const handleImageLoad = (index) => {
+  const handleImageLoad = (index: number) => {
     setImageErrors(prev => ({ ...prev, [index]: false }));
   };
 
   return (
-    <section id="testimonials" className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 py-20 md:py-32 overflow-hidden">
+    <section id="testimonials" className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 pt-3 md:pt-6 pb-8 md:pb-10 overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
       <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
@@ -54,7 +54,7 @@ export default function Testimonials() {
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Section Header */}
-        <div className="text-center mb-16 md:mb-20 animate-fade-in">
+        <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="w-8 h-px bg-accent"></div>
             <span className="text-accent text-sm font-semibold tracking-wider uppercase" data-testid="text-testimonials-label">
@@ -78,25 +78,27 @@ export default function Testimonials() {
 
         {/* Modern Testimonial Card */}
         <div className="max-w-7xl mx-auto animate-slide-up">
-          <div className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-8 md:p-12 border border-white/10 hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10">
+          <div className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-3 md:p-5 border border-white/10 hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10">
             {/* Background glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            <div className="grid lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div className="grid lg:grid-cols-2 gap-5 items-center relative z-10">
               {/* Client Image Section */}
               <div className="order-2 lg:order-1">
-                <div className="relative max-w-md mx-auto lg:mx-0 h-[400px] lg:h-[500px]">
+                <div className="relative max-w-md mx-auto lg:mx-0 h-[280px] lg:h-[360px]">
                   {/* Gradient border around image */}
                   <div className="w-full h-full rounded-2xl bg-gradient-to-br from-accent to-blue-500 p-1">
                     <div className="relative w-full h-full rounded-2xl overflow-hidden bg-leadconnect-dark">
                       <img
                         src={testimonials[currentTestimonial].image}
                         alt={`${testimonials[currentTestimonial].author} - ${testimonials[currentTestimonial].role}`}
-                        className="w-full h-full object-cover object-center rounded-xl"
+                        className="w-full h-full object-cover object-center rounded-xl scale-95"
                         data-testid="img-testimonial-author"
-                        onError={(e) => {
-                          e.target.style.display = 'none';
-                          e.target.nextElementSibling.style.display = 'flex';
+                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                          const img = e.currentTarget;
+                          img.style.display = 'none';
+                          const sibling = img.nextElementSibling as HTMLElement | null;
+                          if (sibling) sibling.style.display = 'flex';
                         }}
                       />
                       {/* Fallback when image fails */}
@@ -134,12 +136,12 @@ export default function Testimonials() {
 
                   
                   {/* Testimonial Quote */}
-                  <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-8 font-light relative z-10" data-testid="text-testimonial-quote">
+                  <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-3 font-light relative z-10" data-testid="text-testimonial-quote">
                   {testimonials[currentTestimonial].quote}
                 </blockquote>
 
                   {/* Author Information */}
-                  <div className="border-t border-white/10 pt-6">
+                  <div className="border-t border-white/10 pt-5">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-full bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center text-white font-bold text-lg">
                         {testimonials[currentTestimonial].initials}
@@ -159,7 +161,7 @@ export default function Testimonials() {
                   </div>
 
                   {/* Navigation Controls */}
-                  <div className="flex items-center justify-between mt-8">
+                  <div className="flex items-center justify-between mt-3">
                     <div className="flex items-center gap-4">
                       <Button
                         onClick={prevTestimonial}
@@ -197,22 +199,7 @@ export default function Testimonials() {
             <div className="absolute bottom-6 left-6 w-8 h-8 border-b-2 border-l-2 border-accent/30 group-hover:border-accent transition-colors duration-300"></div>
           </div>
 
-          {/* Testimonial Indicators */}
-          {testimonials.length > 1 && (
-            <div className="flex justify-center gap-3 mt-8">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentTestimonial(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentTestimonial
-                      ? 'bg-accent scale-125'
-                      : 'bg-white/20 hover:bg-white/40'
-                  }`}
-                />
-              ))}
-            </div>
-          )}
+          {/* Testimonial Indicators removed */}
         </div>
       </div>
     </section>

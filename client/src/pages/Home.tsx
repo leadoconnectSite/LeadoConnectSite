@@ -1,10 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ClientLogos from "@/components/ClientLogos";
-import PurposeDriven from "@/components/PurposeDriven";
+import CombinedIntro from "@/components/CombinedIntro";
 import Services from "@/components/Services";
 import SalesTeam from "@/components/SalesTeam";
-import Statistics from "@/components/Statistics";
 import Results from "@/components/Results";
 import WhatMakesUsUnique from "@/components/WhatMakesUsUnique";
 import Team from "@/components/Team";
@@ -18,11 +16,9 @@ export default function Home() {
     <div className="min-h-screen">
       <Header />
       <Hero />
-      <ClientLogos />
-      <PurposeDriven />
+      <CombinedIntro />
       <Services />
       <SalesTeam />
-      <Statistics />
       <Results />
       <WhatMakesUsUnique />
       <Team />
