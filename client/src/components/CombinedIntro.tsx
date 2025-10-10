@@ -1,7 +1,3 @@
-import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Calendar } from "@/components/ui/calendar";
-import { Clock } from "lucide-react";
 import second1 from "@/assets/second1.png";
 import second2 from "@/assets/second2.png";
 import second3 from "@/assets/second3.png";
@@ -10,13 +6,6 @@ import second5 from "@/assets/second5.png";
 import second6 from "@/assets/second6.png";
 
 export default function CombinedIntro() {
-  const [selectedDate, setSelectedDate] = useState<Date | undefined>(new Date());
-  const [selectedTime, setSelectedTime] = useState<string>("");
-  const timeSlots = [
-    "09:00","09:30","10:00","10:30","11:00","11:30",
-    "12:00","14:00","14:30","15:00","15:30","16:00"
-  ];
-  const timeZone = useMemo(() => Intl.DateTimeFormat().resolvedOptions().timeZone, []);
   const companyLogos = [
     { name: "second1", logo: second1, alt: "Company logo 1" },
     { name: "second2", logo: second2, alt: "Company logo 2" },
@@ -114,8 +103,7 @@ export default function CombinedIntro() {
 
                   {/* Headline */}
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-5 leading-tight">
-                    appointment setting and<br className="hidden sm:block" />
-                    revenue growth.
+                    We are the leader in SQL appointment setting and revenue growth.
                   </h2>
 
                   {/* Description */}
@@ -123,43 +111,6 @@ export default function CombinedIntro() {
                     By refusing to become an outsourced factory, we take a consultative approach that puts our client's interests first. We invest in the best people, technology, and processes so our clients can focus on growth. We know that in sales everybody wants quick wins (and there are some!), but long term, sustainable revenue success should always be the goal.
                   </p>
 
-                  {/* Booking UI */}
-                  <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 md:p-6 text-left">
-                    <div className="flex flex-wrap items-center gap-3 text-sm text-gray-300 mb-4">
-                      <span className="inline-flex items-center gap-1"><Clock className="w-4 h-4 text-accent"/>30 min</span>
-                      <span className="opacity-60">•</span>
-                      <span>Web conferencing details provided upon confirmation.</span>
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <div className="text-sm text-white font-semibold mb-2">Select a Date</div>
-                        <Calendar
-                          mode="single"
-                          selected={selectedDate}
-                          onSelect={setSelectedDate}
-                          className="rounded-md bg-white/0"
-                        />
-                        <div className="mt-2 text-xs text-gray-400">Time zone: {timeZone}</div>
-                      </div>
-                      <div>
-                        <div className="text-sm text-white font-semibold mb-2">Select a Time</div>
-                        <div className="grid grid-cols-3 gap-2">
-                          {timeSlots.map((t) => (
-                            <button
-                              key={t}
-                              onClick={() => setSelectedTime(t)}
-                              className={`text-xs px-2 py-2 rounded-md border transition-colors ${selectedTime === t ? 'bg-accent text-leadconnect-dark border-accent' : 'border-white/10 bg-white/5 text-white hover:bg-white/10'}`}
-                            >
-                              {t}
-                            </button>
-                          ))}
-                        </div>
-                        <div className="mt-4 flex justify-end">
-                          <Button className="leadconnect-accent text-leadconnect-dark px-5 py-2 font-semibold hover:bg-leadconnect-accent-hover">Confirm Booking</Button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
