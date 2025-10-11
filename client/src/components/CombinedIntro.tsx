@@ -28,7 +28,7 @@ export default function CombinedIntro() {
       <section className="relative bg-gradient-to-b from-leadconnect-dark to-leadconnect-teal pt-3 md:pt-6 pb-6 md:pb-8 overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4 md:mb-5 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-2 leading-tight">
               Companies driving <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">revenue</span><br className="hidden sm:block" />
               with LeadConnect.
             </h2>
