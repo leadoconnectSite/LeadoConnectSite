@@ -10,23 +10,25 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      quote: "I am delighted to share my testimonial about the incredible support we have received from LeadConnect in generating B2B SQL's and Appointment settings for our company. Their team has consistently delivered exceptional results that have significantly boosted our sales pipeline.",
+      quote:
+        "I am delighted to share my testimonial about the incredible support we have received from LeadoConnect in generating B2B SQL's and Appointment settings for our company. Their team has consistently delivered exceptional results that have significantly boosted our sales pipeline.",
       author: "Prashant Agrawal",
       role: "Co-Founder & CMO",
       company: "Edvninja",
       image: CLIENT1, // Using imported asset
       rating: 5,
-      initials: "PA"
+      initials: "PA",
     },
     {
-      quote: "LeadConnect transformed our lead generation process completely. The quality of leads and the conversion rates have exceeded our expectations by 300%. Highly recommended for any B2B company looking to scale.",
-      author: "Sarah Johnson", 
+      quote:
+        "LeadoConnect transformed our lead generation process completely. The quality of leads and the conversion rates have exceeded our expectations by 300%. Highly recommended for any B2B company looking to scale.",
+      author: "Sarah Johnson",
       role: "VP of Sales",
       company: "TechFlow Solutions",
       image: CLIENT2, // Using imported asset
       rating: 5,
-      initials: "SJ"
-    }
+      initials: "SJ",
+    },
   ];
 
   const nextTestimonial = () => {
@@ -34,45 +36,58 @@ export default function Testimonials() {
   };
 
   const prevTestimonial = () => {
-    setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+    setCurrentTestimonial(
+      (prev) => (prev - 1 + testimonials.length) % testimonials.length
+    );
   };
 
   const handleImageError = (index: number) => {
-    setImageErrors(prev => ({ ...prev, [index]: true }));
+    setImageErrors((prev) => ({ ...prev, [index]: true }));
   };
 
   const handleImageLoad = (index: number) => {
-    setImageErrors(prev => ({ ...prev, [index]: false }));
+    setImageErrors((prev) => ({ ...prev, [index]: false }));
   };
 
   return (
-    <section id="testimonials" className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 pt-3 md:pt-6 pb-8 md:pb-10 overflow-hidden">
+    <section
+      id="testimonials"
+      className="relative bg-gradient-to-br from-gray-900 via-leadconnect-dark to-gray-800 pt-3 md:pt-6 pb-8 md:pb-10 overflow-hidden"
+    >
       {/* Background decorative elements */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
       <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-      
+
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced Section Header */}
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <div className="inline-flex items-center gap-2 mb-6">
             <div className="w-8 h-px bg-accent"></div>
-            <span className="text-accent text-sm font-semibold tracking-wider uppercase" data-testid="text-testimonials-label">
+            <span
+              className="text-accent text-sm font-semibold tracking-wider uppercase"
+              data-testid="text-testimonials-label"
+            >
               Client Testimonials
             </span>
             <div className="w-8 h-px bg-accent"></div>
           </div>
-          
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight" data-testid="text-testimonials-title">
-            What our clients are<br className="hidden sm:block" />
+
+          <h2
+            className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            data-testid="text-testimonials-title"
+          >
+            What our clients are
+            <br className="hidden sm:block" />
             <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">
               saying about us
             </span>
           </h2>
-          
+
           <p className="text-gray-300 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
-            Don't just take our word for it. Here's what industry leaders have to say about 
-            working with LeadConnect and the results we've delivered.
+            Don't just take our word for it. Here's what industry leaders have
+            to say about working with LeadoConnect and the results we've
+            delivered.
           </p>
         </div>
 
@@ -81,7 +96,7 @@ export default function Testimonials() {
           <div className="group relative bg-white/5 backdrop-blur-sm rounded-3xl p-3 md:p-5 border border-white/10 hover:border-accent/30 transition-all duration-500 hover:shadow-2xl hover:shadow-accent/10">
             {/* Background glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-blue-500/5 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            
+
             <div className="grid lg:grid-cols-2 gap-5 items-center relative z-10">
               {/* Client Image Section */}
               <div className="order-2 lg:order-1">
@@ -94,15 +109,21 @@ export default function Testimonials() {
                         alt={`${testimonials[currentTestimonial].author} - ${testimonials[currentTestimonial].role}`}
                         className="w-full h-full object-cover object-center rounded-xl scale-95"
                         data-testid="img-testimonial-author"
-                        onError={(e: React.SyntheticEvent<HTMLImageElement>) => {
+                        onError={(
+                          e: React.SyntheticEvent<HTMLImageElement>
+                        ) => {
                           const img = e.currentTarget;
-                          img.style.display = 'none';
-                          const sibling = img.nextElementSibling as HTMLElement | null;
-                          if (sibling) sibling.style.display = 'flex';
+                          img.style.display = "none";
+                          const sibling =
+                            img.nextElementSibling as HTMLElement | null;
+                          if (sibling) sibling.style.display = "flex";
                         }}
                       />
                       {/* Fallback when image fails */}
-                      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl" style={{ display: 'none' }}>
+                      <div
+                        className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-700 to-gray-800 rounded-xl"
+                        style={{ display: "none" }}
+                      >
                         <div className="text-center">
                           <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-gradient-to-br from-accent to-blue-500 flex items-center justify-center">
                             <span className="text-4xl font-bold text-white">
@@ -132,13 +153,14 @@ export default function Testimonials() {
                   <div className="absolute -top-6 -left-6 text-accent/30 transform rotate-12">
                     <Quote className="w-20 h-20 fill-current" />
                   </div>
-                  
 
-                  
                   {/* Testimonial Quote */}
-                  <blockquote className="text-xl md:text-2xl text-white leading-relaxed mb-3 font-light relative z-10" data-testid="text-testimonial-quote">
-                  {testimonials[currentTestimonial].quote}
-                </blockquote>
+                  <blockquote
+                    className="text-xl md:text-2xl text-white leading-relaxed mb-3 font-light relative z-10"
+                    data-testid="text-testimonial-quote"
+                  >
+                    {testimonials[currentTestimonial].quote}
+                  </blockquote>
 
                   {/* Author Information */}
                   <div className="border-t border-white/10 pt-5">
@@ -147,10 +169,16 @@ export default function Testimonials() {
                         {testimonials[currentTestimonial].initials}
                       </div>
                       <div>
-                        <p className="font-bold text-white text-lg mb-1" data-testid="text-testimonial-author">
+                        <p
+                          className="font-bold text-white text-lg mb-1"
+                          data-testid="text-testimonial-author"
+                        >
                           {testimonials[currentTestimonial].author}
                         </p>
-                        <p className="text-accent font-medium text-sm" data-testid="text-testimonial-role">
+                        <p
+                          className="text-accent font-medium text-sm"
+                          data-testid="text-testimonial-role"
+                        >
                           {testimonials[currentTestimonial].role}
                         </p>
                         <p className="text-gray-400 text-sm">

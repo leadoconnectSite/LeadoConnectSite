@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import BookMyApp from "@/components/bookmyapp";
+import Team from "./Team";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,45 +13,62 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <a href="#" className="text-white text-xl md:text-2xl font-bold tracking-tight" data-testid="link-logo">
+            <a
+              href="#"
+              className="text-white text-xl md:text-2xl font-bold tracking-tight"
+              data-testid="link-logo"
+            >
               LeadoConnect<span className="text-accent">.</span>
             </a>
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => {}} 
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+          <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <button
+              onClick={() => {}}
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
               data-testid="button-home"
             >
               Home
             </button>
-            <button 
-              onClick={() => {}} 
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium"
+            <button
+              onClick={() => {}}
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
               data-testid="button-about"
             >
               About Us
             </button>
             <div className="relative group">
-              <button 
-                className="text-gray-300 hover:text-white transition-colors text-sm font-medium flex items-center"
+              <button
+                onClick={() => {
+                  Team;
+                }}
+                className="text-gray-300 hover:text-white transition-colors text-sm font-medium flex items-center whitespace-nowrap"
                 data-testid="button-services"
               >
                 Services
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                <svg
+                  className="w-4 h-4 ml-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
                 </svg>
               </button>
               <div className="absolute hidden group-hover:block w-48 bg-leadconnect-dark border border-leadconnect-teal rounded-md mt-2">
-                <button 
+                <button
                   onClick={() => {}}
                   className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
                 >
                   Appointment Setting
                 </button>
-                <button 
+                <button
                   onClick={() => {}}
                   className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
                 >

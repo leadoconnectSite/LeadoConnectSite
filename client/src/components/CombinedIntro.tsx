@@ -12,28 +12,36 @@ export default function CombinedIntro() {
     { name: "second3", logo: second3, alt: "Company logo 3" },
     { name: "second4", logo: second4, alt: "Company logo 4" },
     { name: "second5", logo: second5, alt: "Company logo 5" },
-    { name: "second6", logo: second6, alt: "Company logo 6" }
+    { name: "second6", logo: second6, alt: "Company logo 6" },
   ];
 
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
+    const element = document.getElementById("contact");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   return (
     <>
       {/* Companies driving revenue + Purpose Driven merged into one section */}
-      <section className="relative bg-gradient-to-b from-leadconnect-dark to-leadconnect-teal pt-3 md:pt-6 pb-6 md:pb-8 overflow-hidden">
+      <section
+        className="relative pt-3 md:pt-6 pb-6 md:pb-8 overflow-hidden"
+        style={{ backgroundColor: "#023043" }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4 md:mb-5 animate-fade-in">
             <h2 className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mb-2 leading-tight">
-              Companies driving <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">revenue</span><br className="hidden sm:block" />
-              with LeadConnect.
+              Companies driving{" "}
+              <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">
+                revenue
+              </span>
+              <br className="hidden sm:block" />
+              with LeadoConnect
             </h2>
             <p className="text-gray-300 text-base md:text-lg max-w-3xl mx-auto">
-              500+ sales leaders, marketers, and founders across industries trust us to drive revenue.
+              500+ sales leaders, marketers, and founders across industries
+              trust us to drive revenue.
             </p>
           </div>
 
@@ -42,15 +50,21 @@ export default function CombinedIntro() {
             <div className="overflow-hidden">
               <div className="flex animate-scroll-faster gap-16">
                 {/* Triple set of logos for seamless continuous loop */}
-                {[...companyLogos, ...companyLogos, ...companyLogos].map((company, index) => (
-                  <div key={`logo-${index}`} className="flex-shrink-0" style={{ width: '220px' }}>
-                    <img
-                      src={company.logo}
-                      alt={company.alt}
-                      className="max-h-16 w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
-                    />
-                  </div>
-                ))}
+                {[...companyLogos, ...companyLogos, ...companyLogos].map(
+                  (company, index) => (
+                    <div
+                      key={`logo-${index}`}
+                      className="flex-shrink-0"
+                      style={{ width: "220px" }}
+                    >
+                      <img
+                        src={company.logo}
+                        alt={company.alt}
+                        className="max-h-16 w-full object-contain opacity-80 hover:opacity-100 transition-opacity"
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </div>
           </div>
@@ -62,7 +76,9 @@ export default function CombinedIntro() {
                 transform: translateX(0);
               }
               100% {
-                transform: translateX(calc(-220px * 6 - 16px * 6)); /* Move by one set of logos */
+                transform: translateX(
+                  calc(-220px * 6 - 16px * 6)
+                ); /* Move by one set of logos */
               }
             }
             .animate-scroll-faster {
@@ -86,8 +102,8 @@ export default function CombinedIntro() {
                     className="w-full h-full"
                     style={{
                       backgroundImage:
-                        'radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px)',
-                      backgroundSize: '16px 16px'
+                        "radial-gradient(circle, rgba(255,255,255,0.25) 1px, transparent 1px)",
+                      backgroundSize: "16px 16px",
                     }}
                   />
                 </div>
@@ -103,14 +119,20 @@ export default function CombinedIntro() {
 
                   {/* Headline */}
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-5 leading-tight">
-                    We are the leader in SQL appointment setting and revenue growth.
+                    We are the leader in SQL appointment setting and revenue
+                    growth.
                   </h2>
 
                   {/* Description */}
                   <p className="text-gray-200/90 text-base md:text-lg leading-relaxed mb-6 md:mb-8 max-w-3xl mx-auto text-justify">
-                    By refusing to become an outsourced factory, we take a consultative approach that puts our client's interests first. We invest in the best people, technology, and processes so our clients can focus on growth. We know that in sales everybody wants quick wins (and there are some!), but long term, sustainable revenue success should always be the goal.
+                    By refusing to become an outsourced factory, we take a
+                    consultative approach that puts our client's interests
+                    first. We invest in the best people, technology, and
+                    processes so our clients can focus on growth. We know that
+                    in sales everybody wants quick wins (and there are some!),
+                    but long term, sustainable revenue success should always be
+                    the goal.
                   </p>
-
                 </div>
               </div>
             </div>

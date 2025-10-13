@@ -3,20 +3,30 @@ import { Button } from "@/components/ui/button";
 export default function FinalCTA() {
   const handleBookDemo = () => {
     // Handle book demo action
-    console.log('Book demo clicked');
+    console.log("Book demo clicked");
   };
 
   return (
-    <section id="contact" className="leadconnect-dark py-12 md:py-20 border-t border-leadconnect-teal">
+    <section
+      id="contact"
+      className="leadconnect-dark py-12 md:py-20 border-t border-leadconnect-teal"
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto animate-fade-in">
           <div className="text-center mb-8 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight" data-testid="text-final-cta-title">
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 leading-tight"
+              data-testid="text-final-cta-title"
+            >
               Join the hundreds of companies{" "}
-              <span className="hidden sm:inline"><br /></span>
+              <span className="hidden sm:inline">
+                <br />
+              </span>
               generating Sales leads from{" "}
-              <span className="hidden sm:inline"><br /></span>
-              LeadConnect.
+              <span className="hidden sm:inline">
+                <br />
+              </span>
+              LeadoConnect.
             </h2>
           </div>
 
@@ -34,11 +44,17 @@ export default function FinalCTA() {
 
             {/* Content */}
             <div className="w-full lg:w-3/5 p-6 sm:p-8 md:p-10 lg:p-16 flex flex-col justify-center">
-              <span className="text-leadconnect-dark text-xs sm:text-sm font-semibold tracking-wider uppercase block mb-4 sm:mb-6" data-testid="text-final-cta-label">
+              <span
+                className="text-leadconnect-dark text-xs sm:text-sm font-semibold tracking-wider uppercase block mb-4 sm:mb-6"
+                data-testid="text-final-cta-label"
+              >
                 ROOTED IN TRUST
               </span>
-              
-              <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-leadconnect-dark mb-6 sm:mb-8 leading-snug sm:leading-tight" data-testid="text-final-cta-heading">
+
+              <h3
+                className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-leadconnect-dark mb-6 sm:mb-8 leading-snug sm:leading-tight"
+                data-testid="text-final-cta-heading"
+              >
                 We believe in the power of human connection
               </h3>
 
