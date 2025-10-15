@@ -23,7 +23,10 @@ export default function SalesTeam() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-leadconnect-dark to-leadconnect-teal pt-3 md:pt-6 pb-6 md:pb-8">
+    <section 
+      className="pt-3 md:pt-6 pb-16 md:pb-20 overflow-hidden"
+      style={{ backgroundColor: "#023043" }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           {/* Header Content */}

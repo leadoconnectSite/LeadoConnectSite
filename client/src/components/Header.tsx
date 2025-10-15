@@ -1,11 +1,30 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import BookMyApp from "@/components/bookmyapp";
+import CalendlyButton from "@/components/CalendlyButton";
 import Team from "./Team";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
+
+  let solutionsTimeout;
+
+  const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = "contact"; // FinalCTA section id
+    if (window.location.pathname === "/") {
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.hash = targetId;
+      }
+    } else {
+      // Navigate to home with hash so router loads Home then scrolls
+      window.location.href = "/#" + targetId;
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 leadconnect-dark border-b border-leadconnect-teal">
@@ -24,29 +43,42 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
-            <button
-              onClick={() => {}}
+            <a
+              href="/"
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
               data-testid="button-home"
             >
               Home
-            </button>
-            <button
-              onClick={() => {}}
+            </a>
+            <a
+              href="/#contact"
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
               data-testid="button-about"
+              onClick={handleAboutClick}
             >
               About Us
-            </button>
-            <div className="relative group">
+            </a>
+
+            {/* Solutions Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                clearTimeout(solutionsTimeout);
+                setIsSolutionsOpen(true);
+              }}
+              onMouseLeave={() => {
+                solutionsTimeout = setTimeout(() => {
+                  setIsSolutionsOpen(false);
+                }, 200);
+              }}
+            >
               <button
-                onClick={() => {
-                  Team;
-                }}
                 className="text-gray-300 hover:text-white transition-colors text-sm font-medium flex items-center whitespace-nowrap"
                 data-testid="button-services"
+                aria-expanded={isSolutionsOpen}
+                onClick={() => setIsSolutionsOpen((prev) => !prev)}
               >
-                Services
+                Solutions
                 <svg
                   className="w-4 h-4 ml-1"
                   fill="none"
@@ -61,22 +93,31 @@ export default function Header() {
                   />
                 </svg>
               </button>
-              <div className="absolute hidden group-hover:block w-48 bg-leadconnect-dark border border-leadconnect-teal rounded-md mt-2">
-                <button
-                  onClick={() => {}}
-                  className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
+
+              {/* Dropdown Menu */}
+              <div
+                className={`absolute left-0 top-full mt-1 w-56 bg-leadconnect-dark border border-leadconnect-teal rounded-md shadow-lg z-50 transition-opacity duration-150 ${
+                  isSolutionsOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
+                onMouseEnter={() => clearTimeout(solutionsTimeout)}
+                onMouseLeave={() => {
+                  solutionsTimeout = setTimeout(() => {
+                    setIsSolutionsOpen(false);
+                  }, 200);
+                }}
+              >
+                <a
+                  href="/appointment-settings"
+                  className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
                 >
                   Appointment Setting
-                </button>
-                <button
-                  onClick={() => {}}
-                  className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800"
-                >
-                  B2B Lead Generation
-                </button>
+                </a>
               </div>
             </div>
-            <BookMyApp variant="desktop" />
+
+            <CalendlyButton className="bg-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm w-full">
+              Book a Demo
+            </CalendlyButton>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -102,44 +143,42 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden leadconnect-dark border-t border-leadconnect-teal">
           <nav className="container mx-auto px-4 py-4 space-y-3">
-            <button
-              onClick={() => {}}
+            <a
+              href="/"
               className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
+              onClick={() => setIsMobileMenuOpen(false)}
               data-testid="button-mobile-home"
             >
               Home
-            </button>
-            <button
-              onClick={() => {}}
+            </a>
+            <a
+              href="/#contact"
               className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
+              onClick={(e) => { handleAboutClick(e); setIsMobileMenuOpen(false); }}
               data-testid="button-mobile-about"
             >
               About Us
-            </button>
+            </a>
             <div className="space-y-2">
               <button
-                onClick={() => {}}
                 className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
                 data-testid="button-mobile-services"
               >
-                Services
+                Solutions
               </button>
               <div className="pl-4 space-y-2">
-                <button
-                  onClick={() => {}}
+                <a
+                  href="/appointment-settings"
                   className="block text-gray-300 hover:text-white transition-colors text-sm font-medium py-1 w-full text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Appointment Setting
-                </button>
-                <button
-                  onClick={() => {}}
-                  className="block text-gray-300 hover:text-white transition-colors text-sm font-medium py-1 w-full text-left"
-                >
-                  B2B Lead Generation
-                </button>
+                </a>
               </div>
             </div>
-            <BookMyApp variant="mobile" />
+            <CalendlyButton className="bg-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm w-full mt-2">
+              Book a Demo
+            </CalendlyButton>
           </nav>
         </div>
       )}

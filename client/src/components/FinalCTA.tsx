@@ -1,15 +1,12 @@
-import { Button } from "@/components/ui/button";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export default function FinalCTA() {
-  const handleBookDemo = () => {
-    // Handle book demo action
-    console.log("Book demo clicked");
-  };
+  // Calendly popup handled by CalendlyButton
 
   return (
     <section
       id="contact"
-      className="leadconnect-dark py-12 md:py-20 border-t border-leadconnect-teal"
+      className="leadconnect-dark py-12 md:py-20 border-t border-leadconnect-teal scroll-mt-24"
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto animate-fade-in">
@@ -58,14 +55,12 @@ export default function FinalCTA() {
                 We believe in the power of human connection
               </h3>
 
-              <Button
-                onClick={handleBookDemo}
-                size="lg"
+              <CalendlyButton
                 className="bg-leadconnect-dark text-white px-6 sm:px-8 py-3 sm:py-4 font-bold hover:bg-leadconnect-dark/90 transition-all transform hover:scale-105 shadow-lg w-full sm:w-fit text-sm sm:text-base"
                 data-testid="button-final-cta-book-demo"
               >
                 BOOK A DEMO
-              </Button>
+              </CalendlyButton>
             </div>
           </div>
         </div>
@@ -73,3 +68,4 @@ export default function FinalCTA() {
     </section>
   );
 }
+

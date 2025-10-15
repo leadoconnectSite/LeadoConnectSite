@@ -1,4 +1,6 @@
 import { Facebook, Twitter, Linkedin, Instagram } from "lucide-react";
+import logo1 from "@/assets/logo1.png";
+import logo2 from "@/assets/logo2.png";
 
 export default function Footer() {
   const menuItems = ["Blog", "Pricing", "Contact"];
@@ -29,8 +31,7 @@ export default function Footer() {
               data-testid="text-footer-address"
             >
               Ghanshyam Enclave Office No. – 1111, Wing A<br />
-              New Link Road Gandhi Nagar, Kandivali West
-              <br />
+              New Link Road Gandhi Nagar, Kandivali West<br />
               Mumbai 400067
             </address>
           </div>
@@ -65,35 +66,43 @@ export default function Footer() {
             >
               Social Links
             </h4>
-            <div className="flex space-x-4 mb-6">
+            <div className="flex space-x-4 mb-8">
               {socialLinks.map((social, index) => {
                 const IconComponent = social.icon;
                 return (
                   <a
                     key={index}
                     href="#"
-                    className="w-10 h-10 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center text-white hover:text-leadconnect-dark transition-all"
+                    className="w-12 h-12 rounded-full bg-white/10 hover:bg-accent flex items-center justify-center text-white hover:text-leadconnect-dark transition-all"
                     data-testid={`link-footer-social-${social.label.toLowerCase()}`}
                   >
-                    <IconComponent className="w-5 h-5" />
+                    <IconComponent className="w-6 h-6" />
                   </a>
                 );
               })}
             </div>
 
-            {/* Trust Badges */}
-            <div className="flex space-x-4">
+            {/* Trust Badges - Extra Large Logos */}
+            <div className="flex space-x-6">
               <div
-                className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center"
+                className="w-32 h-32 rounded-2xl bg-accent/20 flex items-center justify-center border border-accent/30 shadow-lg"
                 data-testid="badge-trust-1"
               >
-                <span className="text-xs text-white font-bold">Badge 1</span>
+                <img 
+                  src={logo1} 
+                  alt="Trust Badge 1" 
+                  className="w-28 h-28 object-contain" 
+                />
               </div>
               <div
-                className="w-16 h-16 rounded-full bg-accent/20 flex items-center justify-center"
+                className="w-32 h-32 rounded-2xl bg-accent/20 flex items-center justify-center border border-accent/30 shadow-lg"
                 data-testid="badge-trust-2"
               >
-                <span className="text-xs text-white font-bold">Badge 2</span>
+                <img 
+                  src={logo2} 
+                  alt="Trust Badge 2" 
+                  className="w-28 h-28 object-contain" 
+                />
               </div>
             </div>
           </div>

@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
+import CalendlyButton from "@/components/CalendlyButton";
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -253,15 +254,13 @@ export default function Hero() {
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-white/20 bg-transparent text-white hover:bg-white/10 px-8 py-6 font-semibold transition-all rounded-xl animate-hero-fade-up"
+              <CalendlyButton
+                className="border-white/20 bg-transparent text-white hover:bg-white/10 px-8 py-6 font-semibold transition-all rounded-xl animate-hero-fade-up inline-flex items-center"
                 style={{ animationDelay: '0.85s' }}
               >
                 <Play className="mr-2 w-5 h-5" />
-                Watch Demo
-              </Button>
+                Book a Demo
+              </CalendlyButton>
             </div>
           </div>
 

@@ -32,70 +32,64 @@ export default function TrustedBy() {
   ];
 
   return (
-    <section className="bg-gradient-to-b from-leadconnect-dark to-leadconnect-teal pt-3 md:pt-6 pb-16 md:pb-20">
+    <section 
+      className="pt-3 md:pt-6 pb-16 md:pb-20 overflow-hidden"
+      style={{ backgroundColor: "#023043" }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in">
-          <div className="inline-flex items-center gap-2 mb-6">
-            <div className="w-8 h-px bg-accent"></div>
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-flex items-center gap-3 mb-6">
+            <div className="w-12 h-px bg-accent"></div>
             <span
               className="text-accent text-xs md:text-sm font-semibold tracking-wider uppercase"
-              data-testid="text-trusted-label"
             >
               TRUSTED BY
             </span>
-            <div className="w-8 h-px bg-accent"></div>
+            <div className="w-12 h-px bg-accent"></div>
           </div>
           <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-4 mb-6"
-            data-testid="text-trusted-title"
+            className="text-4xl md:text-5xl lg:text-5xl font-bold text-white mt-4 mb-6 leading-tight"
           >
-            See how companies experience
+            Companies driving{" "}
+            <span className="bg-gradient-to-r from-accent to-blue-400 bg-clip-text text-transparent">
+              revenue
+            </span>
             <br className="hidden sm:block" />
-            growth with LeadoConnect.
+            with LeadoConnect
           </h2>
+          <p className="text-gray-300 text-base md:text-lg max-w-3xl mx-auto">
+            500+ sales leaders, marketers, and founders across industries trust us to drive revenue.
+          </p>
         </div>
 
-        {/* Enhanced Logo Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+        {/* Logo Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {companyLogos.map((company, index) => (
             <div
               key={index}
-              className="group relative bg-white/5 rounded-2xl p-10 backdrop-blur-sm border border-white/10 hover:border-accent/30 transition-all duration-500 hover:transform hover:-translate-y-2"
+              className="group relative bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10 hover:border-accent/30 transition-all duration-500 hover:transform hover:-translate-y-2"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="mb-6 p-5 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors">
+                {/* Logo Container */}
+                <div className="mb-6 p-6 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors duration-300 w-full">
                   <img
                     src={company.logo}
                     alt={company.alt}
-                    className="h-24 w-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
-                    data-testid={`trusted-company-${company.name
-                      .toLowerCase()
-                      .replace(/\s+/g, "-")}`}
+                    className="h-20 w-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
                   />
                 </div>
-                <h3 className="text-white font-semibold text-xl mb-2">
+                
+                {/* Company Info */}
+                <h3 className="text-white font-bold text-xl mb-3">
                   {company.name}
                 </h3>
-                <p className="text-white/60 text-base">{company.description}</p>
+                <p className="text-gray-300 text-sm leading-relaxed">
+                  {company.description}
+                </p>
               </div>
-
-              {/* Hover Effect */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
             </div>
           ))}
-        </div>
-
-        {/* Connection Visualization */}
-        <div className="text-center">
-          <div className="inline-flex items-center justify-center space-x-2 text-white/40 mb-8">
-            <div className="w-12 h-px bg-white/20"></div>
-            <div className="w-2 h-2 rounded-full bg-accent"></div>
-            <div className="w-12 h-px bg-white/20"></div>
-          </div>
-          <p className="text-white/60 text-sm italic">
-            Trusted by industry leaders across various sectors
-          </p>
         </div>
       </div>
     </section>
