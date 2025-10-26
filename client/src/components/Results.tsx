@@ -32,7 +32,7 @@ export default function Results() {
           <div className="inline-flex items-center gap-2 mb-7">
             <div className="w-8 h-px bg-accent"></div>
             <span className="text-accent text-sm font-semibold tracking-wider uppercase" data-testid="text-results-label">
-              RESULTS ORIENTED
+              RESULTS ORIENTE
             </span>
             <div className="w-8 h-px bg-accent"></div>
           </div>
