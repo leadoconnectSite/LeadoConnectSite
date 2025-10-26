@@ -112,6 +112,12 @@ export default function Header() {
                 >
                   Appointment Setting
                 </a>
+                <a
+                  href="/b2b-lead-generation"
+                  className="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-gray-800 transition-colors"
+                >
+                  B2B Lead Generation
+                </a>
               </div>
             </div>
 
@@ -173,6 +179,13 @@ export default function Header() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Appointment Setting
+                </a>
+                <a
+                  href="/b2b-lead-generation"
+                  className="block text-gray-300 hover:text-white transition-colors text-sm font-medium py-1 w-full text-left"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  B2B Lead Generation
                 </a>
               </div>
             </div>
