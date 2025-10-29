@@ -7,7 +7,7 @@ import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
 import AppointmentSettings from "@/pages/AppointmentSettings";
 import B2B from "@/pages/B2B";
-import Price from "@/pages/about";
+import About from "@/pages/About";
 import FAQs from "@/components/FAQs";
 import Contact from "@/pages/Contact";
 
@@ -19,7 +19,7 @@ function Router() {
       <Route path="/" component={Home} />
       <Route path="/appointment-settings" component={AppointmentSettings} />
       <Route path="/b2b-lead-generation" component={B2B} />
-      <Route path="/about" component={Price} />
+      <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route component={NotFound} />
     </Switch>
