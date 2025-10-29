@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import CalendlyButton from "@/components/CalendlyButton";
-import Team from "./Team";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,18 +11,14 @@ export default function Header() {
 
   const handleAboutClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
-    const targetId = "contact"; // FinalCTA section id
-    if (window.location.pathname === "/") {
-      const el = document.getElementById(targetId);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth" });
-      } else {
-        window.location.hash = targetId;
-      }
-    } else {
-      // Navigate to home with hash so router loads Home then scrolls
-      window.location.href = "/#" + targetId;
-    }
+    // Navigate to about page
+    window.location.href = "/About";
+  };
+
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Navigate to contact page
+    window.location.href = "/Contact";
   };
 
   return (
@@ -33,7 +28,7 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <a
-              href="#"
+              href="/"
               className="text-white text-xl md:text-2xl font-bold tracking-tight"
               data-testid="link-logo"
             >
@@ -43,20 +38,13 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            {/* Home */}
             <a
               href="/"
               className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
               data-testid="button-home"
             >
               Home
-            </a>
-            <a
-              href="/#contact"
-              className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
-              data-testid="button-about"
-              onClick={handleAboutClick}
-            >
-              About Us
             </a>
 
             {/* Solutions Dropdown */}
@@ -121,7 +109,28 @@ export default function Header() {
               </div>
             </div>
 
-            <CalendlyButton className="bg-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm w-full">
+            {/* About Us */}
+            <a
+              href="/About"
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
+              data-testid="button-about"
+              onClick={handleAboutClick}
+            >
+              About Us
+            </a>
+
+            {/* Contact */}
+            <a
+              href="/Contact"
+              className="text-gray-300 hover:text-white transition-colors text-sm font-medium whitespace-nowrap"
+              data-testid="button-contact"
+              onClick={handleContactClick}
+            >
+              Contact
+            </a>
+
+            {/* Book a Demo */}
+            <CalendlyButton className="bg-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm whitespace-nowrap">
               Book a Demo
             </CalendlyButton>
           </nav>
@@ -149,6 +158,7 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden leadconnect-dark border-t border-leadconnect-teal">
           <nav className="container mx-auto px-4 py-4 space-y-3">
+            {/* Home */}
             <a
               href="/"
               className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
@@ -157,14 +167,8 @@ export default function Header() {
             >
               Home
             </a>
-            <a
-              href="/#contact"
-              className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
-              onClick={(e) => { handleAboutClick(e); setIsMobileMenuOpen(false); }}
-              data-testid="button-mobile-about"
-            >
-              About Us
-            </a>
+
+            {/* Solutions */}
             <div className="space-y-2">
               <button
                 className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
@@ -189,6 +193,28 @@ export default function Header() {
                 </a>
               </div>
             </div>
+
+            {/* About Us */}
+            <a
+              href="/About"
+              className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
+              onClick={(e) => { handleAboutClick(e); setIsMobileMenuOpen(false); }}
+              data-testid="button-mobile-about"
+            >
+              About Us
+            </a>
+
+            {/* Contact */}
+            <a
+              href="/Contact"
+              className="block text-gray-300 hover:text-white transition-colors text-base font-medium py-2 w-full text-left"
+              onClick={(e) => { handleContactClick(e); setIsMobileMenuOpen(false); }}
+              data-testid="button-mobile-contact"
+            >
+              Contact
+            </a>
+
+            {/* Book a Demo */}
             <CalendlyButton className="bg-accent text-leadconnect-dark px-6 py-2.5 font-semibold hover:bg-leadconnect-accent-hover transition-colors text-sm w-full mt-2">
               Book a Demo
             </CalendlyButton>

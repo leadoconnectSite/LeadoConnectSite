@@ -3,7 +3,13 @@ import logo1 from "@/assets/logo1.png";
 import logo2 from "@/assets/logo2.png";
 
 export default function Footer() {
-  const menuItems = ["Blog", "Pricing", "Contact"];
+  const menuItems = [
+    { name: "Appointment Setting", href: "/appointment-settings" },
+    { name: "B2B Lead Generation", href: "/b2b-lead-generation" },
+    { name: "About Us", href: "/About" },
+    { name: "Contact", href: "/Contact" },
+  ];
+  
   const socialLinks = [
     { icon: Facebook, label: "Facebook" },
     { icon: Twitter, label: "Twitter" },
@@ -24,7 +30,12 @@ export default function Footer() {
               LeadoConnect<span className="text-accent">.</span>
             </h3>
             <p className="text-gray-400 mb-4" data-testid="text-footer-email">
-              fueling@leadoconnect.com
+              <a 
+                href="mailto:fueling@leadoconnect.com" 
+                className="hover:text-accent transition-colors"
+              >
+                fueling@leadoconnect.com
+              </a>
             </p>
             <address
               className="text-gray-400 not-italic leading-relaxed"
@@ -48,11 +59,11 @@ export default function Footer() {
               {menuItems.map((item, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={item.href}
                   className="block text-gray-400 hover:text-accent transition-colors"
-                  data-testid={`link-footer-menu-${item.toLowerCase()}`}
+                  data-testid={`link-footer-menu-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                 >
-                  {item}
+                  {item.name}
                 </a>
               ))}
             </nav>

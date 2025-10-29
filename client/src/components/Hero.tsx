@@ -264,7 +264,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Side - Modern Tech SVG */}
+          {/* Right Side - Modern Growth Visualization */}
           <div className="relative lg:block hidden lg:-translate-x-6">
             <div className="relative w-full h-[600px]">
               <svg
@@ -273,250 +273,241 @@ export default function Hero() {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <defs>
-                  {/* Modern gradient definitions */}
-                  <linearGradient id="techGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.9" />
-                    <stop offset="50%" stopColor="#8b5cf6" stopOpacity="0.7" />
-                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.9" />
+                  {/* Growth gradients */}
+                  <linearGradient id="growthGrad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#10B981" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#059669" stopOpacity="0.7" />
                   </linearGradient>
                   
-                  <linearGradient id="techGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stopColor="#10b981" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.6" />
+                  <linearGradient id="growthGrad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#1D4ED8" stopOpacity="0.7" />
                   </linearGradient>
 
-                  <linearGradient id="techGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="#8b5cf6" stopOpacity="0.6" />
-                    <stop offset="100%" stopColor="#06b6d4" stopOpacity="0.8" />
+                  <linearGradient id="growthGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#8B5CF6" stopOpacity="0.9" />
+                    <stop offset="100%" stopColor="#7C3AED" stopOpacity="0.7" />
                   </linearGradient>
 
-                  <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
-                    <stop offset="100%" stopColor="#3b82f6" stopOpacity="0" />
+                  <linearGradient id="growthLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#10B981" />
+                    <stop offset="50%" stopColor="#3B82F6" />
+                    <stop offset="100%" stopColor="#8B5CF6" />
+                  </linearGradient>
+
+                  <radialGradient id="growthGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#10B981" stopOpacity="0.6" />
+                    <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
                   </radialGradient>
 
-                  <filter id="techGlow" x="-50%" y="-50%" width="200%" height="200%">
-                    <feGaussianBlur stdDeviation="12" result="blur" />
+                  <filter id="growthShadow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="8" result="blur" />
                     <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                  </filter>
-
-                  <filter id="softTechGlow" height="300%" width="300%" x="-75%" y="-75%">
-                    <feMorphology operator="dilate" radius="2" in="SourceAlpha" result="thicken" />
-                    <feGaussianBlur in="thicken" stdDeviation="8" result="blurred" />
-                    <feFlood floodColor="#3b82f6" result="glowColor" />
-                    <feComposite in="glowColor" in2="blurred" operator="in" result="softGlow" />
-                    <feMerge>
-                      <feMergeNode in="softGlow"/>
-                      <feMergeNode in="SourceGraphic"/>
-                    </feMerge>
                   </filter>
                 </defs>
 
-                {/* Central Data Core */}
-                <circle
-                  cx="300"
-                  cy="300"
-                  r="80"
-                  fill="url(#coreGlow)"
-                  filter="url(#techGlow)"
-                  className="animate-pulseCore"
+                {/* Main Growth Curve - Clear upward trajectory */}
+                <path
+                  d="M100,450 Q200,350 300,300 Q400,250 500,200"
+                  fill="none"
+                  stroke="url(#growthLine)"
+                  strokeWidth="4"
+                  className="animate-growthLineDraw"
                 />
 
-                {/* Orbiting Rings */}
-                <g className="animate-rotateSlow">
-                  <circle
-                    cx="300"
-                    cy="300"
-                    r="120"
-                    fill="none"
-                    stroke="url(#techGrad1)"
-                    strokeWidth="2"
-                    strokeDasharray="4 4"
-                    opacity="0.7"
-                  />
-                </g>
-
-                <g className="animate-rotateMedium" style={{ animationDelay: '1s' }}>
-                  <circle
-                    cx="300"
-                    cy="300"
-                    r="160"
-                    fill="none"
-                    stroke="url(#techGrad2)"
-                    strokeWidth="1.5"
-                    strokeDasharray="6 3"
-                    opacity="0.6"
-                  />
-                </g>
-
-                <g className="animate-rotateFast" style={{ animationDelay: '2s' }}>
-                  <circle
-                    cx="300"
-                    cy="300"
-                    r="200"
-                    fill="none"
-                    stroke="url(#techGrad3)"
-                    strokeWidth="1"
-                    strokeDasharray="8 2"
-                    opacity="0.5"
-                  />
-                </g>
-
-                {/* Floating Data Nodes */}
-                {[...Array(8)].map((_, i) => {
-                  const angle = (i * 45) * Math.PI / 180;
-                  const radius = 120;
-                  const cx = 300 + radius * Math.cos(angle);
-                  const cy = 300 + radius * Math.sin(angle);
-                  
-                  return (
-                    <g key={`node-${i}`} className="animate-floatNode">
-                      <circle
-                        cx={cx}
-                        cy={cy}
-                        r="6"
-                        fill="url(#techGrad1)"
-                        filter="url(#softTechGlow)"
-                        style={{ animationDelay: `${i * 0.3}s` }}
-                      />
-                      <circle
-                        cx={cx}
-                        cy={cy}
-                        r="2"
-                        fill="#ffffff"
-                        className="animate-pulse"
-                        style={{ animationDelay: `${i * 0.3}s` }}
-                      />
-                    </g>
-                  );
-                })}
-
-                {/* Connection Lines between Nodes */}
-                {[...Array(8)].map((_, i) => {
-                  const angle1 = (i * 45) * Math.PI / 180;
-                  const angle2 = ((i + 1) * 45) * Math.PI / 180;
-                  const radius = 120;
-                  
-                  const x1 = 300 + radius * Math.cos(angle1);
-                  const y1 = 300 + radius * Math.sin(angle1);
-                  const x2 = 300 + radius * Math.cos(angle2);
-                  const y2 = 300 + radius * Math.sin(angle2);
-                  
-                  return (
-                    <line
-                      key={`connector-${i}`}
-                      x1={x1}
-                      y1={y1}
-                      x2={x2}
-                      y2={y2}
-                      stroke="rgba(59, 130, 246, 0.4)"
-                      strokeWidth="1"
-                      className="animate-pulseLine"
-                      style={{ animationDelay: `${i * 0.1}s` }}
-                    />
-                  );
-                })}
-
-                {/* Outer Data Points */}
-                {[...Array(16)].map((_, i) => {
-                  const angle = (i * 22.5) * Math.PI / 180;
-                  const radius = 200;
-                  const cx = 300 + radius * Math.cos(angle);
-                  const cy = 300 + radius * Math.sin(angle);
-                  
-                  return (
+                {/* Growth Milestone Points */}
+                {[
+                  { x: 100, y: 450, value: "Start", delay: 0 },
+                  { x: 200, y: 350, value: "Month 1", delay: 0.3 },
+                  { x: 300, y: 300, value: "Month 3", delay: 0.6 },
+                  { x: 400, y: 250, value: "Month 6", delay: 0.9 },
+                  { x: 500, y: 200, value: "Month 12", delay: 1.2 }
+                ].map((point, i) => (
+                  <g key={`milestone-${i}`} className="animate-milestonePop">
                     <circle
-                      key={`outer-point-${i}`}
-                      cx={cx}
-                      cy={cy}
-                      r="3"
-                      fill="#06b6d4"
-                      className="animate-pulseOuter"
-                      style={{
-                        animationDelay: `${i * 0.2}s`,
-                        animationDuration: '3s'
-                      }}
+                      cx={point.x}
+                      cy={point.y}
+                      r="8"
+                      fill="#ffffff"
+                      stroke={i === 4 ? "#8B5CF6" : i === 3 ? "#3B82F6" : "#10B981"}
+                      strokeWidth="3"
+                      style={{ animationDelay: `${point.delay}s` }}
                     />
-                  );
-                })}
-
-                {/* Floating Data Streams */}
-                <path
-                  d="M200,200 Q300,150 400,200 T500,300"
-                  stroke="url(#techGrad1)"
-                  strokeWidth="1.5"
-                  fill="none"
-                  opacity="0.6"
-                  className="animate-dataStream"
-                />
-                
-                <path
-                  d="M100,350 Q300,400 500,350"
-                  stroke="url(#techGrad2)"
-                  strokeWidth="1.5"
-                  fill="none"
-                  opacity="0.6"
-                  className="animate-dataStream"
-                  style={{ animationDelay: '1.5s' }}
-                />
-
-                {/* Binary Code Particles */}
-                {[...Array(20)].map((_, i) => (
-                  <text
-                    key={`binary-${i}`}
-                    x={Math.random() * 600}
-                    y={Math.random() * 600}
-                    fill="#3b82f6"
-                    opacity="0.4"
-                    fontSize="10"
-                    className="animate-floatBinary"
-                    style={{
-                      animationDelay: `${Math.random() * 5}s`,
-                      animationDuration: `${8 + Math.random() * 8}s`
-                    }}
-                  >
-                    {Math.random() > 0.5 ? '1' : '0'}
-                  </text>
+                    <circle
+                      cx={point.x}
+                      cy={point.y}
+                      r="4"
+                      fill={i === 4 ? "#8B5CF6" : i === 3 ? "#3B82F6" : "#10B981"}
+                      style={{ animationDelay: `${point.delay}s` }}
+                    />
+                    <text
+                      x={point.x}
+                      y={point.y - 20}
+                      textAnchor="middle"
+                      fill="#ffffff"
+                      fontSize="12"
+                      fontWeight="600"
+                      className="animate-textFade"
+                      style={{ animationDelay: `${point.delay + 0.2}s` }}
+                    >
+                      {point.value}
+                    </text>
+                  </g>
                 ))}
 
-                {/* Tech Grid Background */}
-                <g opacity="0.1">
-                  {[...Array(12)].map((_, i) => (
-                    <line
-                      key={`grid-h-${i}`}
-                      x1="50"
-                      y1={50 + i * 50}
-                      x2="550"
-                      y2={50 + i * 50}
-                      stroke="#3b82f6"
-                      strokeWidth="0.5"
+                {/* Growing Bar Chart - Clear visual growth representation */}
+                {[
+                  { x: 120, height: 60, delay: 0.1, color: "url(#growthGrad1)" },
+                  { x: 180, height: 100, delay: 0.3, color: "url(#growthGrad1)" },
+                  { x: 240, height: 140, delay: 0.5, color: "url(#growthGrad2)" },
+                  { x: 300, height: 200, delay: 0.7, color: "url(#growthGrad2)" },
+                  { x: 360, height: 260, delay: 0.9, color: "url(#growthGrad3)" },
+                  { x: 420, height: 320, delay: 1.1, color: "url(#growthGrad3)" },
+                  { x: 480, height: 380, delay: 1.3, color: "url(#growthGrad3)" }
+                ].map((bar, i) => (
+                  <g key={`growth-bar-${i}`} className="animate-barGrow">
+                    <rect
+                      x={bar.x}
+                      y={450 - bar.height}
+                      width="40"
+                      height={bar.height}
+                      fill={bar.color}
+                      opacity="0.9"
+                      style={{ animationDelay: `${bar.delay}s` }}
+                      rx="4"
                     />
-                  ))}
-                  {[...Array(12)].map((_, i) => (
-                    <line
-                      key={`grid-v-${i}`}
-                      x1={50 + i * 50}
-                      y1="50"
-                      x2={50 + i * 50}
-                      y2="550"
-                      stroke="#3b82f6"
-                      strokeWidth="0.5"
+                    {/* Growth percentage labels */}
+                    <text
+                      x={bar.x + 20}
+                      y={450 - bar.height - 10}
+                      textAnchor="middle"
+                      fill="#ffffff"
+                      fontSize="11"
+                      fontWeight="600"
+                      className="animate-textFade"
+                      style={{ animationDelay: `${bar.delay + 0.3}s` }}
+                    >
+                      +{((bar.height / 60) * 100).toFixed(0)}%
+                    </text>
+                  </g>
+                ))}
+
+                {/* Rising Growth Particles */}
+                {[...Array(15)].map((_, i) => (
+                  <circle
+                    key={`rising-${i}`}
+                    cx={150 + Math.random() * 300}
+                    cy={550}
+                    r={1 + Math.random() * 2}
+                    fill="#10B981"
+                    className="animate-riseFast"
+                    style={{
+                      animationDelay: `${Math.random() * 2}s`,
+                      animationDuration: `${3 + Math.random() * 2}s`
+                    }}
+                  />
+                ))}
+
+                {/* Growth Sparkles at Peak */}
+                {[...Array(8)].map((_, i) => (
+                  <g
+                    key={`sparkle-${i}`}
+                    className="animate-sparkleTwinkle"
+                    style={{
+                      animationDelay: `${1.5 + i * 0.2}s`,
+                      animationDuration: `${2 + Math.random() * 1}s`
+                    }}
+                  >
+                    <circle
+                      cx={480 + Math.random() * 40}
+                      cy={180 + Math.random() * 40}
+                      r="2"
+                      fill="#ffffff"
+                      opacity="0.8"
                     />
-                  ))}
+                  </g>
+                ))}
+
+                {/* Growth Acceleration Zones */}
+                <path
+                  d="M300,300 Q350,280 400,250"
+                  fill="none"
+                  stroke="#F59E0B"
+                  strokeWidth="3"
+                  strokeDasharray="4 4"
+                  opacity="0.7"
+                  className="animate-dashFlow"
+                />
+
+                {/* Growth Target Circle */}
+                <circle
+                  cx="500"
+                  cy="200"
+                  r="30"
+                  fill="none"
+                  stroke="#8B5CF6"
+                  strokeWidth="2"
+                  opacity="0.5"
+                  className="animate-pulse"
+                />
+
+                {/* Growth Metrics Labels */}
+                <text
+                  x="300"
+                  y="500"
+                  textAnchor="middle"
+                  fill="#10B981"
+                  fontSize="14"
+                  fontWeight="700"
+                  className="animate-textFade"
+                  style={{ animationDelay: '1.8s' }}
+                >
+                  CONSISTENT GROWTH
+                </text>
+                
+                <text
+                  x="300"
+                  y="520"
+                  textAnchor="middle"
+                  fill="#3B82F6"
+                  fontSize="12"
+                  fontWeight="600"
+                  className="animate-textFade"
+                  style={{ animationDelay: '2s' }}
+                >
+                  Month over Month
+                </text>
+
+                {/* Growth Arrow */}
+                <g className="animate-arrowPulse" style={{ animationDelay: '2.2s' }}>
+                  <path
+                    d="M500,170 L490,190 L510,190 Z"
+                    fill="#10B981"
+                    opacity="0.8"
+                  />
+                  <text
+                    x="500"
+                    y="165"
+                    textAnchor="middle"
+                    fill="#10B981"
+                    fontSize="10"
+                    fontWeight="700"
+                  >
+                    PEAK
+                  </text>
                 </g>
               </svg>
 
-              {/* Additional floating tech elements */}
+              {/* Additional floating growth indicators */}
               <div className="absolute inset-0">
                 {[...Array(6)].map((_, i) => (
                   <div
-                    key={`tech-dot-${i}`}
-                    className="absolute w-1 h-1 bg-accent rounded-full animate-techFloat"
+                    key={`growth-indicator-${i}`}
+                    className="absolute w-2 h-2 bg-green-400 rounded-full animate-bounce"
                     style={{
-                      left: `${20 + Math.random() * 60}%`,
-                      top: `${20 + Math.random() * 60}%`,
-                      animationDelay: `${Math.random() * 4}s`,
-                      animationDuration: `${6 + Math.random() * 6}s`
+                      left: `${40 + i * 15}%`,
+                      top: `${80 - i * 8}%`,
+                      animationDelay: `${i * 0.3}s`
                     }}
                   />
                 ))}
@@ -596,106 +587,97 @@ export default function Hero() {
           }
         }
 
-        /* New Tech SVG Animations */
-        @keyframes pulseCore {
-          0%, 100% { 
-            opacity: 0.6;
+        /* New Growth-specific Animations */
+        @keyframes growthLineDraw {
+          0% {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            opacity: 0;
+          }
+          100% {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 0;
+            opacity: 1;
+          }
+        }
+
+        @keyframes milestonePop {
+          0% {
+            transform: scale(0);
+            opacity: 0;
+          }
+          70% {
+            transform: scale(1.2);
+            opacity: 1;
+          }
+          100% {
             transform: scale(1);
+            opacity: 1;
           }
-          50% { 
+        }
+
+        @keyframes barGrow {
+          0% {
+            transform: scaleY(0);
+            opacity: 0;
+            transform-origin: bottom;
+          }
+          80% {
+            transform: scaleY(1.1);
+          }
+          100% {
+            transform: scaleY(1);
             opacity: 0.9;
-            transform: scale(1.05);
           }
         }
 
-        @keyframes rotateSlow {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        @keyframes rotateMedium {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(-360deg); }
-        }
-
-        @keyframes rotateFast {
-          0% { transform: rotate(0deg); }
-          100% { transform: rotate(360deg); }
-        }
-
-        @keyframes floatNode {
-          0%, 100% { 
-            transform: translateY(0px) scale(1);
+        @keyframes riseFast {
+          0% {
+            opacity: 0;
+            transform: translateY(0) scale(1);
           }
-          50% { 
-            transform: translateY(-8px) scale(1.1);
+          10% {
+            opacity: 1;
+          }
+          90% {
+            opacity: 0.8;
+          }
+          100% {
+            opacity: 0;
+            transform: translateY(-100px) scale(0.5);
           }
         }
 
-        @keyframes pulseLine {
-          0%, 100% { 
-            stroke-opacity: 0.3;
-          }
-          50% { 
-            stroke-opacity: 0.8;
-          }
-        }
-
-        @keyframes pulseOuter {
-          0%, 100% { 
+        @keyframes sparkleTwinkle {
+          0%, 100% {
             opacity: 0.3;
             transform: scale(1);
           }
-          50% { 
-            opacity: 0.8;
+          50% {
+            opacity: 1;
             transform: scale(1.3);
           }
         }
 
-        @keyframes dataStream {
+        @keyframes textFade {
           0% {
-            stroke-dasharray: 20 10;
-            stroke-dashoffset: 0;
+            opacity: 0;
+            transform: translateY(10px);
           }
           100% {
-            stroke-dasharray: 20 10;
-            stroke-dashoffset: 100;
+            opacity: 1;
+            transform: translateY(0);
           }
         }
 
-        @keyframes floatBinary {
-          0%, 100% { 
-            opacity: 0;
-            transform: translateY(0px);
-          }
-          10% { 
+        @keyframes arrowPulse {
+          0%, 100% {
             opacity: 0.6;
+            transform: translateY(0);
           }
-          90% { 
-            opacity: 0.6;
-          }
-          100% { 
-            opacity: 0;
-            transform: translateY(-40px);
-          }
-        }
-
-        @keyframes techFloat {
-          0%, 100% { 
-            transform: translate(0, 0) scale(1);
-            opacity: 0.3;
-          }
-          25% { 
-            transform: translate(5px, -8px) scale(1.2);
-            opacity: 0.6;
-          }
-          50% { 
-            transform: translate(2px, -12px) scale(1);
-            opacity: 0.8;
-          }
-          75% { 
-            transform: translate(-3px, -6px) scale(1.3);
-            opacity: 0.5;
+          50% {
+            opacity: 1;
+            transform: translateY(-3px);
           }
         }
 
@@ -722,43 +704,33 @@ export default function Hero() {
           animation: floatDeluxe ease-in-out infinite;
         }
 
-        /* New Tech Animation Classes */
-        .animate-pulseCore {
-          animation: pulseCore ease-in-out infinite;
-          animation-duration: 4s;
+        /* New Growth Animation Classes */
+        .animate-growthLineDraw {
+          animation: growthLineDraw 2.5s ease-out forwards;
         }
-        .animate-rotateSlow {
-          animation: rotateSlow linear infinite;
-          animation-duration: 25s;
+
+        .animate-milestonePop {
+          animation: milestonePop 0.6s ease-out forwards;
         }
-        .animate-rotateMedium {
-          animation: rotateMedium linear infinite;
-          animation-duration: 18s;
+
+        .animate-barGrow {
+          animation: barGrow 1s ease-out forwards;
         }
-        .animate-rotateFast {
-          animation: rotateFast linear infinite;
-          animation-duration: 12s;
+
+        .animate-riseFast {
+          animation: riseFast ease-in-out infinite;
         }
-        .animate-floatNode {
-          animation: floatNode ease-in-out infinite;
-          animation-duration: 3s;
+
+        .animate-sparkleTwinkle {
+          animation: sparkleTwinkle ease-in-out infinite;
         }
-        .animate-pulseLine {
-          animation: pulseLine ease-in-out infinite;
-          animation-duration: 2s;
+
+        .animate-textFade {
+          animation: textFade 0.8s ease-out forwards;
         }
-        .animate-pulseOuter {
-          animation: pulseOuter ease-in-out infinite;
-        }
-        .animate-dataStream {
-          animation: dataStream linear infinite;
-          animation-duration: 6s;
-        }
-        .animate-floatBinary {
-          animation: floatBinary ease-in-out infinite;
-        }
-        .animate-techFloat {
-          animation: techFloat ease-in-out infinite;
+
+        .animate-arrowPulse {
+          animation: arrowPulse 2s ease-in-out infinite;
         }
 
         /* Hero Text Loading Effects */
