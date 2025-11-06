@@ -1,6 +1,33 @@
-node_modules
-dist
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+
+# macOS system files
 .DS_Store
-server/public
+
+# Public uploads or generated assets (if needed)
+server/public/
+
+# Environment files (typo fix: .env)
+.env
+.env.*
+
+# Vite configuration (ignore any local variations)
 vite.config.ts.*
+
+# Compressed archives
 *.tar.gz
+
+# Logs
+logs/
+*.log
+
+# Optional: Ignore local IDE/project settings
+.vscode/
+.idea/
+
+# Optional: Ignore temporary files
+*.tmp
+*.temp
