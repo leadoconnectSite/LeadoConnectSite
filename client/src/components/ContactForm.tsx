@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, AlertCircle } from "lucide-react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,31 +10,59 @@ export default function ContactForm() {
     message: ""
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: value
     }));
+    // Clear error when user starts typing
+    if (error) setError("");
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    // Reset form after submission
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        company: "",
-        service: "",
-        message: ""
+    setIsSubmitting(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      setIsSubmitted(false);
-    }, 3000);
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Failed to send message");
+      }
+
+      // Success
+      setIsSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          service: "",
+          message: ""
+        });
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      const errorMessage = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      setError(errorMessage);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,6 +92,14 @@ export default function ContactForm() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Error Message */}
+                {error && (
+                  <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-4 flex items-start gap-3">
+                    <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <p className="text-red-200 text-sm">{error}</p>
+                  </div>
+                )}
+
                 <div className="grid md:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
@@ -76,7 +112,8 @@ export default function ContactForm() {
                       value={formData.name}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Your full name"
                     />
                   </div>
@@ -91,7 +128,8 @@ export default function ContactForm() {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -108,7 +146,8 @@ export default function ContactForm() {
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       placeholder="Your company"
                     />
                   </div>
@@ -121,7 +160,8 @@ export default function ContactForm() {
                       name="service"
                       value={formData.service}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:ring-2 focus:ring-accent focus:border-transparent transition-colors"
+                      disabled={isSubmitting}
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:ring-2 focus:ring-accent focus:border-transparent transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       <option value="" className="bg-gray-800">Select a service</option>
                       <option value="appointment-setting" className="bg-gray-800">Appointment Setting</option>
@@ -142,18 +182,29 @@ export default function ContactForm() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
+                    disabled={isSubmitting}
                     rows={5}
-                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-400 focus:ring-2 focus:ring-accent focus:border-transparent transition-colors resize-none disabled:opacity-50 disabled:cursor-not-allowed"
                     placeholder="Tell us about your project or requirements..."
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-accent text-leadconnect-dark py-4 px-6 rounded-lg font-semibold hover:bg-leadconnect-accent-hover transition-colors flex items-center justify-center gap-2 group"
+                  disabled={isSubmitting}
+                  className="w-full bg-accent text-leadconnect-dark py-4 px-6 rounded-lg font-semibold hover:bg-leadconnect-accent-hover transition-colors flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                  Send Message
+                  {isSubmitting ? (
+                    <>
+                      <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </form>
             )}

@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { registerContactRoute } from "./contact-routes";
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // put application routes here
@@ -10,6 +11,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // e.g. storage.insertUser(user) or storage.getUserByUsername(username)
 
   const httpServer = createServer(app);
+  registerContactRoute(app);
 
   return httpServer;
 }
