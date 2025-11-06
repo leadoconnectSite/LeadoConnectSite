@@ -27,7 +27,7 @@ export default function SalesTeam() {
       className="pt-3 md:pt-6 pb-16 md:pb-20 overflow-hidden"
       style={{ backgroundColor: "#023043" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="max-w-6xl mx-auto">
           {/* Header Content */}
           <div className="text-center mb-8 md:mb-12">

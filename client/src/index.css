@@ -187,6 +187,29 @@
     background-color: var(--leadconnect-accent-hover);
   }
 
+  /* Unified Container - matches Hero section layout */
+  .site-container {
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+  }
+
+  @media (min-width: 640px) {
+    .site-container {
+      padding-left: 1.5rem; /* sm:px-6 */
+      padding-right: 1.5rem; /* sm:px-6 */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .site-container {
+      padding-left: 2rem; /* lg:px-8 */
+      padding-right: 2rem; /* lg:px-8 */
+    }
+  }
+
   .animate-scroll {
     animation: scroll 20s linear infinite;
   }

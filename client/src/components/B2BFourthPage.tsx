@@ -10,7 +10,7 @@ export default function FutureOfDataSection() {
       className="pt-3 md:pt-6 pb-8 md:pb-12 overflow-hidden"
       style={{ backgroundColor: "#023043" }}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-flex items-center gap-3 mb-6">
             <div className="w-12 h-px bg-accent"></div>

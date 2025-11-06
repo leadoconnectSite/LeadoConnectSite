@@ -1,7 +1,7 @@
 export default function TrustStatement() {
   return (
     <section className="leadconnect-dark py-16 md:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="max-w-4xl mx-auto animate-fade-in">
           <div className="leadconnect-accent rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
             {/* Dot Pattern */}

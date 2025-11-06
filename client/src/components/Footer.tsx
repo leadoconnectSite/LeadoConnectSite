@@ -19,7 +19,7 @@ export default function Footer() {
 
   return (
     <footer className="leadconnect-dark border-t border-leadconnect-teal py-12 md:py-16">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="lg:col-span-2">

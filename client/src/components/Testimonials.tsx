@@ -107,7 +107,7 @@ export default function Testimonials() {
       <div className="absolute top-0 right-0 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="site-container relative z-10">
         {/* Enhanced Section Header */}
         <div className="text-center mb-8 md:mb-10 animate-fade-in">
           <div className="inline-flex items-center gap-2 mb-6">

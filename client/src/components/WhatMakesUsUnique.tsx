@@ -28,7 +28,7 @@ export default function WhatMakesUsUnique() {
       id="about"
       className="bg-gradient-to-br from-slate-50 via-blue-50 to-gray-100 py-7 md:py-11"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="site-container">
         {/* Section Header with Image - Made more compact */}
         <div className="grid lg:grid-cols-2 gap-8 md:gap-10 items-center mb-8 md:mb-10 animate-fade-in">
           {/* Image */}

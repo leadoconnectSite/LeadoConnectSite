@@ -26,7 +26,7 @@ export default function Results() {
       <div className="absolute top-0 left-0 w-72 h-72 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
       
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="site-container relative z-10">
         {/* Centered Section Label */}
         <div className="text-center mb-7 md:mb-10 animate-fade-in">
           <div className="inline-flex items-center gap-2 mb-7">
@@ -365,7 +365,7 @@ export default function Results() {
 
       {/* ROOTED IN TRUST Section */}
       <div className="mt-6 md:mt-8 pt-8 md:pt-10 pb-3 md:pb-6">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="site-container">
           <div className="max-w-4xl mx-auto animate-fade-in">
             <div className="bg-accent rounded-2xl p-8 md:p-12 lg:p-16 relative overflow-hidden">
               {/* Dot Pattern */}
