@@ -2,6 +2,10 @@ import company1 from "@/assets/company1.png";
 import company2 from "@/assets/company2.png";
 import company3 from "@/assets/company3.png";
 import company4 from "@/assets/company4.png";
+import company5 from "@/assets/company5.png";
+import company6 from "@/assets/company6.jpg";
+import company7 from "@/assets/company7.png";
+// Remove the problematic imports and use placeholders instead
 
 export default function TrustedBy() {
   const companyLogos = [
@@ -9,27 +13,41 @@ export default function TrustedBy() {
       name: "Edmingle",
       logo: company1,
       alt: "Edmingle Logo",
-      description: "Leading EdTech Platform",
     },
     {
-      name: "Synergy Group",
+      name: "Herkey",
       logo: company2,
-      alt: "Synergy Group Logo",
-      description: "Business Consulting Firm",
-    },
-    {
-      name: "HKR Trainings",
-      logo: company3,
-      alt: "HKR Trainings Logo",
-      description: "Professional Training Institute",
+      alt: "Herkey Logo",
     },
     {
       name: "Drishti",
-      logo: company4,
+      logo: company3,
       alt: "Drishti Logo",
-      description: "Innovation Solutions Provider",
+    },
+    {
+      name: "Cadena",
+      logo: company4,
+      alt: "Cadena Logo",
+    },
+    {
+      name: "Easehawk Technologies",
+      logo: company5,
+      alt: "Easehawk Technologies Logo",
+    },
+    {
+      name: "Aktis Engineering Solutions",
+      logo: company6,
+      alt: "Aktis Engineering Solutions Logo",
+    },
+    {
+      name: "Fx31 Labs",
+      logo: company7,
+      alt: "Fx31 Labs Logo",
     },
   ];
+
+  // Duplicate the array to create seamless loop
+  const duplicatedCompanies = [...companyLogos, ...companyLogos];
 
   return (
     <section 
@@ -63,35 +81,52 @@ export default function TrustedBy() {
           </p>
         </div>
 
-        {/* Logo Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
-          {companyLogos.map((company, index) => (
-            <div
-              key={index}
-              className="group relative bg-white/5 rounded-2xl p-8 backdrop-blur-sm border border-white/10 hover:border-accent/30 transition-all duration-500 hover:transform hover:-translate-y-2"
-            >
-              <div className="flex flex-col items-center text-center">
-                {/* Logo Container */}
-                <div className="mb-6 p-6 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors duration-300 w-full">
-                  <img
-                    src={company.logo}
-                    alt={company.alt}
-                    className="h-20 w-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
-                  />
+        {/* Scrolling Container */}
+        <div className="relative overflow-hidden">
+          <div className="flex animate-scroll">
+            {duplicatedCompanies.map((company, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-64 mx-4 group relative bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10 hover:border-accent/30 transition-all duration-500 hover:transform hover:-translate-y-2"
+              >
+                <div className="flex flex-col items-center text-center">
+                  {/* Logo Container */}
+                  <div className="mb-4 p-4 bg-white/5 rounded-xl group-hover:bg-white/10 transition-colors duration-300 w-full">
+                    <img
+                      src={company.logo}
+                      alt={company.alt}
+                      className="h-16 w-full object-contain opacity-80 group-hover:opacity-100 transition-all duration-300"
+                    />
+                  </div>
+                  
+                  {/* Company Info */}
+                  <h3 className="text-white font-bold text-lg">
+                    {company.name}
+                  </h3>
                 </div>
-                
-                {/* Company Info */}
-                <h3 className="text-white font-bold text-xl mb-3">
-                  {company.name}
-                </h3>
-                <p className="text-gray-300 text-sm leading-relaxed">
-                  {company.description}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(calc(-272px * 7)); /* 7 companies * (w-64 + mx-4) */
+          }
+        }
+        .animate-scroll {
+          animation: scroll 30s linear infinite;
+          display: flex;
+        }
+        .animate-scroll:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </section>
   );
 }

@@ -24,9 +24,9 @@ export default function Testimonials() {
     {
       quote:
         "LeadoConnect transformed our lead generation process completely. The quality of leads and the conversion rates have exceeded our expectations by 300%. Highly recommended for any B2B company looking to scale.",
-      author: "Sarah Johnson",
-      role: "VP of Sales",
-      company: "TechFlow Solutions",
+      author: "Stephen Carter",
+      role: "Founder & CEO",
+      company: "Sterling Staffing",
       image: CLIENT2,
       rating: 5,
       initials: "SJ",
