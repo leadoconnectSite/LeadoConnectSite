@@ -1,5 +1,5 @@
 import { Users, Monitor, FileCheck } from "lucide-react";
-import serviceImage from "@/assets/service.jpg";
+import serviceImage from "@/assets/service.png";
 
 export default function WhatMakesUsUnique() {
   const pillars = [

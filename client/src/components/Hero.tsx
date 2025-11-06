@@ -3,13 +3,6 @@ import { ArrowRight, Play, Sparkles } from "lucide-react";
 import CalendlyButton from "@/components/CalendlyButton";
 
 export default function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gray-900 overflow-hidden pt-10 md:pt-14">
       {/* Premium Animated SVG Background */}
@@ -195,10 +188,10 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="site-container relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 w-full">
+        <div className="grid lg:grid-cols-2 gap-8 items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Left Content */}
-          <div className="text-left pl-4 sm:pl-6 md:pl-10 lg:pl-14">
+          <div className="text-center lg:text-left">
             {/* Label font matched to Services */}
             <div className="inline-flex items-center gap-2 mb-6 animate-hero-fade" style={{ animationDelay: '0s' }}>
               <div className="w-8 h-px bg-accent"></div>
@@ -218,14 +211,14 @@ export default function Hero() {
             </div>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mb-8 animate-hero-fade-up" style={{ animationDelay: '0.35s' }}>
+            <p className="text-lg md:text-xl text-gray-300 leading-relaxed mb-8 animate-hero-fade-up" style={{ animationDelay: '0.35s' }}>
               Transform your sales pipeline with our AI-driven platform that delivers 
               <span className="text-accent font-semibold"> qualified leads, advanced automation, </span>
               and measurable revenue growth while cutting acquisition costs.
             </p>
 
             {/* Metrics */}
-            <div className="grid grid-cols-3 gap-8 py-6 max-w-xl mb-10">
+            <div className="grid grid-cols-3 gap-8 py-6 mb-10">
               {[
                 { value: "3.2x", label: "Lead Quality" },
                 { value: "45%", label: "Cost Reduction" },
@@ -233,7 +226,7 @@ export default function Hero() {
               ].map((metric, index) => (
                 <div
                   key={index}
-                  className="text-left animate-hero-fade-up"
+                  className="text-center lg:text-left animate-hero-fade-up"
                   style={{ animationDelay: `${0.45 + index * 0.1}s` }}
                 >
                   <div className="text-3xl md:text-4xl font-bold text-white">{metric.value}</div>
@@ -242,30 +235,21 @@ export default function Hero() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 items-start mb-8 sm:mb-0">
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-accent text-leadconnect-dark px-8 py-6 font-bold hover:bg-leadconnect-accent-hover transition-all transform hover:scale-105 shadow-2xl border-0 group rounded-xl animate-hero-fade-up"
+            {/* CTA Button - Single Button with Calendly functionality */}
+            <div className="flex justify-center lg:justify-start items-center mb-8 sm:mb-0">
+              <CalendlyButton
+                className="bg-accent text-leadconnect-dark px-8 py-6 font-bold hover:bg-leadconnect-accent-hover transition-all transform hover:scale-105 shadow-2xl border-0 group rounded-xl animate-hero-fade-up inline-flex items-center"
                 style={{ animationDelay: '0.75s' }}
               >
+                <Play className="mr-2 w-5 h-5" />
                 Start Accelerating
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <CalendlyButton
-                className="border-white/20 bg-transparent text-white hover:bg-white/10 px-8 py-6 font-semibold transition-all rounded-xl animate-hero-fade-up inline-flex items-center"
-                style={{ animationDelay: '0.85s' }}
-              >
-                <Play className="mr-2 w-5 h-5" />
-                Book a Demo
               </CalendlyButton>
             </div>
           </div>
 
           {/* Right Side - Modern Growth Visualization */}
-          <div className="relative lg:block hidden lg:-translate-x-6">
+          <div className="relative lg:block hidden">
             <div className="relative w-full h-[600px]">
               <svg
                 viewBox="0 0 600 600"
