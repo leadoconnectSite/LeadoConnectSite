@@ -4,7 +4,6 @@ import AppointmentSection from "@/components/AppointmentSection";
 import CompaniesSection from "@/components/CompaniesSection";
 import OutboundAgencySection from "@/components/OutboundAgencySection";
 import SalesTeamSection from "@/components/SalesTeamSection";
-import TrackRecordSection from "@/components/TrackRecordSection";
 import AnalyticsSection from "@/components/AnalyticsSection";
 
 export default function AppointmentSettings() {
@@ -15,7 +14,6 @@ export default function AppointmentSettings() {
       <CompaniesSection />
       <OutboundAgencySection />
       <SalesTeamSection />
-      <TrackRecordSection />
       <AnalyticsSection />
       <Footer />
     </div>
